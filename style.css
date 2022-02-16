@@ -1,0 +1,44 @@
+header {
+    background-color: #161616;
+    padding: 20px 0;
+    
+}
+
+.nome{
+    color: #FFFFFF;
+}
+
+p {
+    display: block;
+}
+
+.caixa {
+    position: relative;
+    width: 1080px;
+    margin: 0 auto;
+}
+
+nav {
+    position:absolute;
+    top: 50px;
+    right: 20px;
+}
+
+nav li {
+    display:inline;
+    margin: 0 0 0 15px;
+    font-family: 'Prompt', sans-serif;
+    
+}
+
+nav a {
+    
+    
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-size: 22px;
+    font-family: Open sans;
+    text-decoration: none;
+    font-family: 'Prompt', sans-serif;
+}
+
