@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lição 01 — Os sete atributos da APS</title>
+<style>
+  :root{
+    --ink:#1a1a18; --ink-soft:#55524c; --ink-faint:#8a857d;
+    --bg:#fffef9; --card:#ffffff; --rule:#ddd8cc;
+    --accent:#7d2b1d; --accent-soft:#f6ece6;
+    --ok:#2c5f2d; --ok-bg:#eef4ea; --ok-rule:#a8c9a0;
+    --no:#9b2226; --no-bg:#fbeceb; --no-rule:#dda9a6;
+    --warn:#8a4b00; --warn-bg:#fdf3e3;
+    --ess:#2f5d75; --der:#6b4e8f;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:3rem 1.25rem 5rem;background:var(--bg);color:var(--ink);
+    font-family:var(--serif);font-size:17px;line-height:1.58;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:44rem;margin:0 auto}
+  .eyebrow{font-family:var(--sans);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-faint);margin:0 0 .5rem}
+  h1{font-size:2.05rem;line-height:1.14;margin:0 0 .35rem;font-weight:600;letter-spacing:-.015em}
+  .sub{color:var(--ink-soft);font-style:italic;margin:0 0 2.2rem;font-size:1.03rem}
+  h2{font-family:var(--sans);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent);font-weight:650;margin:2.7rem 0 .85rem;padding-bottom:.35rem;
+    border-bottom:1px solid var(--rule)}
+  p{margin:0 0 .9rem}
+  ul,ol{margin:0 0 .9rem;padding-left:1.35rem}
+  li{margin-bottom:.45rem}
+  strong{font-weight:650}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(125,43,29,.3)}
+  a:hover{border-bottom-color:var(--accent)}
+  .lede{font-size:1.08rem;line-height:1.62}
+
+  /* attribute cards */
+  .attrs{margin:1.1rem 0 .4rem}
+  .grp{font-family:var(--sans);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+    font-weight:700;color:#fff;padding:.16em .5em;border-radius:2px;display:inline-block;margin:1.1rem 0 .6rem}
+  .grp.e{background:var(--ess)} .grp.d{background:var(--der)}
+  .attr{border:1px solid var(--rule);border-left:3px solid var(--ess);background:var(--card);
+    border-radius:0 3px 3px 0;padding:.75rem .95rem;margin-bottom:.5rem}
+  .attr.d{border-left-color:var(--der)}
+  .attr b{display:block;font-family:var(--sans);font-size:.93rem;font-weight:650;margin-bottom:.15rem}
+  .attr span{display:block;font-size:.95rem;color:var(--ink-soft);line-height:1.5}
+  .attr .trap{display:block;margin-top:.35rem;font-size:.87rem;color:var(--warn);font-family:var(--sans)}
+
+  .callout{border-left:3px solid var(--warn);background:var(--warn-bg);padding:.9rem 1.1rem;
+    margin:1.3rem 0;border-radius:0 3px 3px 0}
+  .callout.good{border-left-color:var(--ok);background:var(--ok-bg)}
+  .callout.grave{border-left-color:var(--accent);background:var(--accent-soft)}
+  .callout h3{font-family:var(--sans);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+    margin:0 0 .45rem;color:var(--warn);font-weight:650}
+  .callout.good h3{color:var(--ok)} .callout.grave h3{color:var(--accent)}
+  .callout p:last-child,.callout ul:last-child{margin-bottom:0}
+
+  /* quiz */
+  #quiz{border:1px solid var(--rule);border-radius:4px;background:var(--card);
+    padding:1.4rem 1.4rem 1.5rem;margin:1.2rem 0}
+  .qmeta{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--sans);
+    font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);
+    margin-bottom:.9rem;padding-bottom:.6rem;border-bottom:1px solid var(--rule)}
+  .qmeta .sc{font-variant-numeric:tabular-nums;font-weight:700;letter-spacing:0;text-transform:none;font-size:.8rem}
+  .stem{font-size:1.03rem;margin:0 0 1.1rem;line-height:1.55}
+  .opts{list-style:none;margin:0 0 1.1rem;padding:0}
+  .opts li{margin:0 0 .5rem}
+  .opts button{width:100%;text-align:left;font-family:var(--serif);font-size:1rem;line-height:1.45;
+    background:var(--bg);color:var(--ink);border:1px solid var(--rule);border-radius:3px;
+    padding:.7rem .85rem;cursor:pointer;display:flex;gap:.7rem;align-items:baseline;
+    transition:border-color .12s,background .12s}
+  .opts button:hover:not(:disabled){border-color:var(--ink-soft)}
+  .opts button .k{font-family:var(--sans);font-weight:700;font-size:.8rem;color:var(--ink-faint);flex:0 0 1rem}
+  .opts button[aria-pressed="true"]{border-color:var(--ink);border-width:1.5px;background:#fff}
+  .opts button:disabled{cursor:default;opacity:1}
+  .opts button.right{border-color:var(--ok-rule);background:var(--ok-bg)}
+  .opts button.right .k{color:var(--ok)}
+  .opts button.wrong{border-color:var(--no-rule);background:var(--no-bg)}
+  .opts button.wrong .k{color:var(--no)}
+  .opts button.dim{opacity:.5}
+  .fb{border-left:3px solid var(--ok);background:var(--ok-bg);padding:.85rem 1rem;
+    border-radius:0 3px 3px 0;margin:0 0 1.1rem;font-size:.97rem;line-height:1.55}
+  .fb.no{border-left-color:var(--no);background:var(--no-bg)}
+  .fb b{font-family:var(--sans);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;
+    display:block;margin-bottom:.35rem;color:var(--ok)}
+  .fb.no b{color:var(--no)}
+  .fb .src{display:block;margin-top:.5rem;font-family:var(--sans);font-size:.78rem;color:var(--ink-faint)}
+  .act{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+  .act button{font-family:var(--sans);font-size:.88rem;font-weight:600;padding:.6rem 1.15rem;
+    border-radius:3px;border:1px solid var(--accent);background:var(--accent);color:#fffef9;cursor:pointer}
+  .act button:disabled{opacity:.35;cursor:not-allowed}
+  .act .hint{font-family:var(--sans);font-size:.78rem;color:var(--ink-faint)}
+  .prog{display:flex;gap:.25rem;margin-bottom:.9rem}
+  .prog i{flex:1;height:.28rem;border-radius:2px;background:var(--rule)}
+  .prog i.done{background:var(--ok)} .prog i.miss{background:var(--no)} .prog i.now{background:var(--ink-soft)}
+  #done{display:none}
+  .bigscore{font-family:var(--sans);font-size:2.4rem;font-weight:700;letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;margin:.2rem 0 .1rem}
+  .misslist{font-size:.96rem;margin:.9rem 0 0;padding-left:1.3rem}
+  .noprint-note{font-family:var(--sans);font-size:.8rem;color:var(--ink-faint);margin-top:.6rem}
+
+  footer{margin-top:3.5rem;padding-top:1rem;border-top:1px solid var(--rule);
+    font-family:var(--sans);font-size:.76rem;color:var(--ink-faint)}
+  .nav{font-family:var(--sans);font-size:.8rem;margin-top:1.5rem}
+  @media print{
+    body{padding:0;font-size:10.5pt;background:#fff}.wrap{max-width:none}
+    #quiz,.nav{display:none}a{border-bottom:0;color:var(--ink)}
+    .attr,.callout{break-inside:avoid}
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ink:#eae6dd;--ink-soft:#b0aaa0;--ink-faint:#8b857b;--bg:#171614;--card:#1e1d1a;--rule:#3a3730;
+      --accent:#e5947f;--accent-soft:#2c1c18;--ok:#8fbe86;--ok-bg:#1b241a;--ok-rule:#3f5c3a;
+      --no:#e08b86;--no-bg:#2a1919;--no-rule:#5e3230;--warn:#e0a75c;--warn-bg:#2a2115;
+      --ess:#7fb0c9;--der:#b299d6;
+    }
+    :root:not([data-theme="light"]) .grp{color:#171614}
+    :root:not([data-theme="light"]) .opts button[aria-pressed="true"]{background:#26241f}
+    :root:not([data-theme="light"]) .act button{color:#171614}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Lição 01 · Semana 1 · 38º TEMFC</p>
+  <h1>Os sete atributos da APS</h1>
+  <p class="sub">O framework que a prova usa como régua — e que você já pratica todos os dias sem chamar pelo nome.</p>
+
+  <p class="lede">Você atende na Atenção Primária. Isso significa que os sete atributos já estão no seu dia: você é a porta de entrada de alguém, você acompanha as mesmas pessoas há anos, você recebe contrarreferência do hospital e remonta o cuidado. O que o TEMFC cobra não é a prática — é o <strong>nome</strong> e a <strong>classificação</strong>.</p>
+
+  <div class="callout grave">
+    <h3>Por que este tema é o primeiro do plano</h3>
+    <p>Os atributos da APS são a lente que a banca usa para escrever as questões dos outros 26 temas. Uma questão sobre cuidado domiciliar, sobre saúde da população negra ou sobre gestão do processo de trabalho quase sempre está, no fundo, perguntando <em>qual atributo está em jogo</em>. Aprender isto primeiro rende juros em todas as semanas seguintes.</p>
+  </div>
+
+  <h2>O mapa: quatro essenciais, três derivados</h2>
+  <p>A classificação vem de <strong>Barbara Starfield</strong> e é a base do <span style="font-family:var(--sans);font-size:.9em">PCATool</span>, o instrumento de avaliação da APS validado para o Brasil. A divisão entre <strong>essencial</strong> e <strong>derivado</strong> é o que a prova mais gosta de testar — decore o pertencimento, não só a lista.</p>
+
+  <div class="attrs">
+    <span class="grp e">4 atributos essenciais</span>
+    <div class="attr">
+      <b>1 · Acesso de primeiro contato</b>
+      <span>O serviço é a porta de entrada procurada a cada novo problema — ou a cada novo episódio de um problema antigo. Envolve acessibilidade (ela consegue chegar) e utilização (ela de fato procura primeiro).</span>
+      <span class="trap">⚠ Exceção prevista: as <em>verdadeiras emergências</em> não passam pela porta de entrada. Questão que traz IAM ou politrauma indo direto ao pronto-socorro não está descrevendo falha de acesso.</span>
+    </div>
+    <div class="attr">
+      <b>2 · Longitudinalidade</b>
+      <span>Vínculo e responsabilização ao longo do tempo: a equipe conhece a pessoa, e a pessoa reconhece a equipe como sua fonte de cuidado. Independe de a pessoa estar doente ou de haver um problema em curso.</span>
+      <span class="trap">⚠ Não confundir com <em>continuidade</em>: continuidade é a informação seguir o caso (um prontuário completo, um encaminhamento bem feito). Longitudinalidade é a <em>relação</em> durar.</span>
+    </div>
+    <div class="attr">
+      <b>3 · Integralidade</b>
+      <span>A oferta abrange o espectro inteiro: promoção, prevenção, cura, reabilitação e cuidados paliativos — incluindo reconhecer necessidades que o serviço não resolve sozinho e providenciar onde resolver.</span>
+      <span class="trap">⚠ Não confundir com <em>integração</em> da rede, nem com "atender tudo". Serviço que só faz consulta curativa falha em integralidade.</span>
+    </div>
+    <div class="attr">
+      <b>4 · Coordenação do cuidado</b>
+      <span>A equipe integra tudo que acontece com a pessoa em outros pontos da rede num plano único e coerente. Depende de <strong>informação</strong>: registro, contrarreferência, reconciliação medicamentosa.</span>
+      <span class="trap">⚠ Encaminhar não é coordenar. Coordenar é o que a equipe faz com o que <em>volta</em> do encaminhamento.</span>
+    </div>
+
+    <span class="grp d">3 atributos derivados</span>
+    <div class="attr d">
+      <b>5 · Orientação familiar</b>
+      <span>A família é tomada como unidade de cuidado e como contexto que explica o adoecimento. Ferramentas típicas: genograma, ciclo de vida familiar, APGAR e FIRO familiar.</span>
+    </div>
+    <div class="attr d">
+      <b>6 · Orientação comunitária</b>
+      <span>O cuidado se orienta pelas necessidades da população adscrita e do território, identificadas com participação da comunidade — não apenas pela demanda que bate na porta.</span>
+    </div>
+    <div class="attr d">
+      <b>7 · Competência cultural</b>
+      <span>Adaptação do cuidado às características culturais, linguísticas, religiosas e de identidade das pessoas atendidas, de modo a não produzir barreira nem iatrogenia cultural.</span>
+    </div>
+  </div>
+
+  <div class="callout good">
+    <h3>O truque de memória que resolve a maior parte das questões</h3>
+    <p>Os <strong>essenciais</strong> descrevem o <em>funcionamento do serviço</em> como sistema: por onde se entra, quanto tempo dura o vínculo, quanto abrange, como se articula. Os <strong>derivados</strong> descrevem <em>de quem se está cuidando</em>: a família, a comunidade, a cultura.</p>
+    <p style="margin-top:.5rem"><strong>Sistema → essencial. Sujeito → derivado.</strong></p>
+  </div>
+
+  <h2>Agora pratique — e do jeito difícil</h2>
+  <p>Sete casos. <strong>Uma questão por vez, e a resposta trava quando você confirma.</strong> Não há como voltar atrás, exatamente como na plataforma do TEMFC (edital, itens 10.1.2 a 10.1.10). Isso é desconfortável de propósito: a habilidade que a prova cobra é decidir e seguir.</p>
+
+  <div id="quiz">
+    <div class="prog" id="prog" aria-hidden="true"></div>
+    <div class="qmeta"><span id="qn">Questão 1 de 7</span><span class="sc" id="sc">0 acertos</span></div>
+    <p class="stem" id="stem"></p>
+    <ul class="opts" id="opts"></ul>
+    <div class="fb" id="fb" style="display:none"></div>
+    <div class="act">
+      <button id="confirm" disabled>Confirmar e travar</button>
+      <button id="next" style="display:none">Próxima questão →</button>
+      <span class="hint" id="hint">Escolha uma alternativa.</span>
+    </div>
+  </div>
+
+  <div id="done">
+    <h2>Resultado</h2>
+    <p class="bigscore" id="final"></p>
+    <p id="verdict"></p>
+    <div id="missblock"></div>
+  </div>
+
+  <h2>Fonte primária</h2>
+  <div class="callout">
+    <h3>Leia isto nesta semana</h3>
+    <p><strong>Tratado de Medicina de Família e Comunidade</strong> — Gusso, Lopes &amp; Dias, Vol. 1, Artmed, 2019 — capítulos iniciais sobre princípios da MFC e da APS. É a referência <strong>nº 2</strong> da bibliografia oficial do edital, e a única fonte de cerca de dez dos vinte e sete temas cobrados. Se houver um único livro para conseguir, é este.</p>
+    <p style="margin-top:.5rem">Em paralelo, de graça e em uma sentada: a <a href="https://bvsms.saude.gov.br/bvs/saudelegis/gm/2017/prt2436_22_09_2017.html"><strong>Portaria nº 2.436/2017 — PNAB</strong></a> (referência nº 11). Ela transforma os atributos em regra administrativa: composição de equipe, população adscrita, atribuições. Questão de PNAB é questão de decorar número — e é ponto barato.</p>
+  </div>
+  <p style="font-size:.93rem;color:var(--ink-soft)">Para conferir a classificação essencial/derivado numa fonte aberta e revisada por pares, os <a href="https://scielosp.org/article/sdeb/2018.v42nspe1/52-66/">resultados nacionais do PMAQ-AB publicados na Saúde em Debate</a> discutem os atributos essenciais medidos no Brasil.</p>
+
+  <h2>Antes de fechar</h2>
+  <div class="callout good">
+    <h3>Abra o caderno de erros</h3>
+    <p>Para cada questão que você errou aqui, escreva três linhas: <strong>(1)</strong> o que a questão pedia, <strong>(2)</strong> por que você errou — não sabia, interpretou mal, ou confundiu com outro atributo — e <strong>(3)</strong> uma frase de correção. Esse caderno é o material que você vai revisar na semana 13, e ele vale mais que qualquer resumo pronto.</p>
+    <p style="margin-top:.5rem"><strong>Dúvida em qualquer ponto?</strong> Manda para o Felipe — ele tem um assistente do outro lado que monta as lições e pode explicar, corrigir ou fazer uma lição nova só sobre o que ficou confuso. Dúvida anotada e não perguntada é ponto perdido em novembro.</p>
+  </div>
+
+  <p class="nav">Referências: <a href="../reference/01-edital-em-uma-pagina.html">01 · O edital em uma página</a> · <a href="../reference/02-plano-13-semanas.html">02 · Plano de 13 semanas</a></p>
+
+  <footer>
+    Lição 01 · Semana 1 de 13 · Tema: Princípios da MFC e da APS (Anexo I, itens 1 e 2).
+    Classificação de atributos conforme Starfield, base do PCATool validado para o Brasil.
+    Fonte oficial do conteúdo: referência nº 2 (Gusso, Vol. 1) e nº 11 (PNAB) do Anexo I do Edital TEMFC 38.
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+    var Q = [
+    {
+      stem: "Uma mulher de 42 anos, com lombalgia recorrente há três semanas, procura o pronto-socorro do hospital municipal. Ela relata que tentou marcar na UBS onde é cadastrada, mas foi informada de que a próxima vaga com médico é em cinco semanas. Qual atributo da APS está primariamente comprometido?",
+      opts: [
+        "Longitudinalidade do vínculo",
+        "Integralidade da atenção",
+        "Acesso de primeiro contato",
+        "Coordenação do cuidado"
+      ],
+      ans: 2,
+      why: [
+        "O vínculo com a equipe não foi descrito como rompido: ela é cadastrada e tentou usar a UBS. O problema não foi a relação ao longo do tempo, foi não conseguir entrar.",
+        "Integralidade é sobre a amplitude da oferta (promoção, prevenção, cura, reabilitação). Nada na descrição indica oferta estreita; indica oferta inacessível.",
+        "A lombalgia recorrente não é emergência verdadeira, então deveria ter a UBS como porta de entrada. A espera de cinco semanas é uma barreira de acessibilidade que empurra a pessoa para outro ponto da rede — falha clássica de acesso de primeiro contato.",
+        "Coordenação diz respeito a integrar o que acontece nos outros pontos da rede. Aqui o problema aconteceu antes disso — ela não conseguiu nem iniciar o cuidado na APS."
+      ],
+      src: "Anexo I, ref. 2 — Gusso, princípios da APS · atenção à exceção das emergências verdadeiras"
+    },
+    {
+      stem: "Um homem de 60 anos é acompanhado pela mesma equipe de Saúde da Família há onze anos. A médica conhece sua história, sua esposa e seu trabalho; ele a procura para qualquer questão de saúde, inclusive as que não são doença. Ele muda de casa, permanece no mesmo território e segue com a equipe. Qual atributo esta situação melhor ilustra?",
+      opts: [
+        "Longitudinalidade",
+        "Continuidade informacional",
+        "Coordenação do cuidado",
+        "Acesso de primeiro contato"
+      ],
+      ans: 0,
+      why: [
+        "É a definição exata: vínculo e responsabilização que duram no tempo, com reconhecimento mútuo entre pessoa e equipe, independente de haver doença em curso.",
+        "Continuidade é a informação acompanhar o caso — prontuário completo, contrarreferência que chega. É um meio, e não o atributo que a cena descreve: aqui o que impressiona é a relação durar onze anos.",
+        "Coordenação exigiria outros pontos da rede envolvidos e a equipe integrando esses fluxos. A cena não menciona rede nem encaminhamento algum.",
+        "Ele de fato usa a equipe como porta de entrada, mas o elemento central da cena é a duração do vínculo, não o momento da entrada."
+      ],
+      src: "Anexo I, ref. 2 — Gusso · distinção longitudinalidade × continuidade"
+    },
+    {
+      stem: "Uma senhora de 78 anos internou por insuficiência cardíaca descompensada e teve alta com três medicamentos novos e dois suspensos. A equipe da UBS recebe o resumo de alta, reconcilia a lista de medicamentos, identifica uma duplicidade e agenda visita domiciliar em 48 horas. Qual atributo está sendo exercido?",
+      opts: [
+        "Integralidade da atenção",
+        "Orientação familiar do cuidado",
+        "Longitudinalidade do vínculo",
+        "Coordenação do cuidado"
+      ],
+      ans: 3,
+      why: [
+        "Integralidade seria o caso se o foco fosse a amplitude da oferta. Aqui a oferta não está em questão; o que está em jogo é articular o que veio do hospital.",
+        "Nada na cena descreve a família como unidade de cuidado ou como contexto do adoecimento. A visita domiciliar não torna a ação automaticamente familiar.",
+        "O vínculo pode existir, mas o que a cena descreve é uma ação pontual de articulação com a rede, não a duração da relação.",
+        "Coordenação é exatamente isto: integrar num plano único e coerente o que aconteceu em outro ponto da rede, e o insumo dessa integração é informação — o resumo de alta, a reconciliação medicamentosa."
+      ],
+      src: "Anexo I, ref. 2 — Gusso · encaminhar não é coordenar"
+    },
+    {
+      stem: "Numa UBS, a agenda é integralmente ocupada por consultas para queixas agudas. Não há ações de promoção, o grupo de tabagismo foi encerrado, não se faz busca ativa de faltosos e a reabilitação de sequelados de AVC não é ofertada nem articulada. Qual atributo está primariamente comprometido?",
+      opts: [
+        "Acesso de primeiro contato",
+        "Integralidade da atenção",
+        "Coordenação do cuidado",
+        "Orientação comunitária"
+      ],
+      ans: 1,
+      why: [
+        "O acesso está funcionando: as pessoas entram e são atendidas para queixas agudas. O problema é o que se oferece depois de entrar, não a entrada.",
+        "Integralidade é a amplitude do espectro ofertado — promoção, prevenção, cura, reabilitação, paliação — incluindo providenciar onde se resolve o que a unidade não resolve. Um serviço só curativo falha aqui por definição.",
+        "Não há descrição de falha em articular outros pontos da rede. A falha é anterior: o próprio leque de ações da unidade é estreito.",
+        "A orientação comunitária é uma vítima secundária plausível, mas o que a cena descreve de forma direta é o estreitamento do espectro de atenção."
+      ],
+      src: "Anexo I, ref. 2 — Gusso · ref. 11 PNAB, atribuições das equipes"
+    },
+    {
+      stem: "Um adolescente de 15 anos com diabetes tipo 1 tem hemoglobina glicada persistentemente alta. A médica desenha um genograma, descobre que a mãe assumiu sozinha o cuidado após separação conflituosa e que o irmão mais velho ridiculariza as aplicações de insulina. Ela convida a família para uma consulta conjunta. Qual atributo está sendo exercido?",
+      opts: [
+        "Competência cultural",
+        "Orientação comunitária",
+        "Orientação familiar",
+        "Integralidade da atenção"
+      ],
+      ans: 2,
+      why: [
+        "Competência cultural trata de adaptar o cuidado a características culturais, linguísticas, religiosas ou de identidade. Conflito familiar não é diferença cultural.",
+        "Orientação comunitária olha para a população adscrita e o território. A cena é inteiramente intrafamiliar.",
+        "A família está sendo usada tanto como contexto que explica o adoecimento quanto como unidade de intervenção — e o genograma é a ferramenta típica desse atributo derivado.",
+        "Ampliar o olhar para além do biológico é coerente com integralidade, mas a cena descreve com precisão a família como unidade de cuidado — o atributo derivado específico."
+      ],
+      src: "Anexo I, ref. 13 — Asen et al., 10 Minutos para a Família · ref. 2 Gusso"
+    },
+    {
+      stem: "Uma equipe atende uma comunidade quilombola. Percebendo que as orientações dietéticas padronizadas eram sistematicamente abandonadas, a equipe as reescreve a partir dos alimentos efetivamente produzidos e consumidos no território e passa a incorporar as lideranças locais nas atividades educativas. Qual atributo está sendo mais diretamente exercido?",
+      opts: [
+        "Longitudinalidade do vínculo",
+        "Competência cultural",
+        "Coordenação do cuidado",
+        "Acesso de primeiro contato"
+      ],
+      ans: 1,
+      why: [
+        "A duração do vínculo não é o que a cena discute; o que muda é o conteúdo da orientação, não o tempo de acompanhamento.",
+        "O cuidado está sendo adaptado às características culturais e alimentares da população para deixar de ser barreira — definição direta de competência cultural. A orientação comunitária também aparece, mas o gatilho da mudança foi a inadequação cultural.",
+        "Não há outros pontos da rede sendo articulados na descrição.",
+        "Ninguém está sendo descrito com dificuldade de entrar no serviço; a equipe já atende esta comunidade."
+      ],
+      src: "Anexo I, ref. 7 — PNSIPN · ref. 9 — Saúde Indígena, Mendes et al."
+    },
+    {
+      stem: "Qual das alternativas contém exclusivamente atributos DERIVADOS da Atenção Primária à Saúde?",
+      opts: [
+        "Longitudinalidade, orientação familiar e competência cultural",
+        "Integralidade, coordenação do cuidado e orientação familiar",
+        "Acesso de primeiro contato, integralidade e longitudinalidade",
+        "Orientação familiar, orientação comunitária e competência cultural"
+      ],
+      ans: 3,
+      why: [
+        "Longitudinalidade é um dos quatro essenciais. Uma alternativa com um essencial infiltrado já está errada.",
+        "Integralidade e coordenação são ambos essenciais. Só a orientação familiar é derivada aqui.",
+        "Os três são essenciais — esta alternativa é a lista dos essenciais menos a coordenação.",
+        "São exatamente os três derivados. Regra de memória: os derivados descrevem de quem se cuida — família, comunidade, cultura."
+      ],
+      src: "Anexo I, ref. 2 — Gusso · classificação de Starfield, base do PCATool"
+    }
+  ];
+
+  var i = 0, score = 0, sel = null, locked = false;
+  var missed = [];
+
+  var elProg = document.getElementById('prog');
+  var elQn = document.getElementById('qn');
+  var elSc = document.getElementById('sc');
+  var elStem = document.getElementById('stem');
+  var elOpts = document.getElementById('opts');
+  var elFb = document.getElementById('fb');
+  var elConfirm = document.getElementById('confirm');
+  var elNext = document.getElementById('next');
+  var elHint = document.getElementById('hint');
+  var elQuiz = document.getElementById('quiz');
+  var elDone = document.getElementById('done');
+
+  for (var p = 0; p < Q.length; p++) elProg.appendChild(document.createElement('i'));
+
+  function paintProg(){
+    var kids = elProg.children;
+    for (var k = 0; k < kids.length; k++){
+      kids[k].className = k < i ? (missed.indexOf(k) === -1 ? 'done' : 'miss') : (k === i ? 'now' : '');
+    }
+  }
+
+  function render(){
+    var q = Q[i];
+    sel = null; locked = false;
+    elQn.textContent = 'Questão ' + (i + 1) + ' de ' + Q.length;
+    elSc.textContent = score + (score === 1 ? ' acerto' : ' acertos');
+    elStem.textContent = q.stem;
+    elFb.style.display = 'none';
+    elFb.className = 'fb';
+    elConfirm.style.display = '';
+    elConfirm.disabled = true;
+    elNext.style.display = 'none';
+    elHint.textContent = 'Escolha uma alternativa.';
+    elHint.style.display = '';
+    elOpts.innerHTML = '';
+    paintProg();
+
+    q.opts.forEach(function(text, idx){
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-pressed', 'false');
+      var k = document.createElement('span');
+      k.className = 'k';
+      k.textContent = 'ABCD'.charAt(idx);
+      var t = document.createElement('span');
+      t.textContent = text;
+      b.appendChild(k); b.appendChild(t);
+      b.addEventListener('click', function(){
+        if (locked) return;
+        sel = idx;
+        var all = elOpts.querySelectorAll('button');
+        for (var a = 0; a < all.length; a++) all[a].setAttribute('aria-pressed', 'false');
+        b.setAttribute('aria-pressed', 'true');
+        elConfirm.disabled = false;
+        elHint.textContent = 'Ao confirmar, a resposta trava — igual à prova.';
+      });
+      li.appendChild(b);
+      elOpts.appendChild(li);
+    });
+  }
+
+  elConfirm.addEventListener('click', function(){
+    if (locked || sel === null) return;
+    locked = true;
+    var q = Q[i];
+    var right = (sel === q.ans);
+    if (right) score++; else missed.push(i);
+
+    var all = elOpts.querySelectorAll('button');
+    for (var a = 0; a < all.length; a++){
+      all[a].disabled = true;
+      if (a === q.ans) all[a].className = 'right';
+      else if (a === sel) all[a].className = 'wrong';
+      else all[a].className = 'dim';
+    }
+
+    elFb.className = right ? 'fb' : 'fb no';
+    var head = right ? 'Correta' : 'Incorreta';
+    var body = right
+      ? q.why[q.ans]
+      : '<strong>Por que sua escolha não serve:</strong> ' + q.why[sel] +
+        '<br><br><strong>Por que a ' + 'ABCD'.charAt(q.ans) + ' é a correta:</strong> ' + q.why[q.ans];
+    elFb.innerHTML = '<b>' + head + '</b>' + body +
+      '<span class="src">Fonte: ' + q.src + '</span>';
+    elFb.style.display = '';
+
+    elSc.textContent = score + (score === 1 ? ' acerto' : ' acertos');
+    elConfirm.style.display = 'none';
+    elHint.style.display = 'none';
+    elNext.style.display = '';
+    elNext.textContent = (i === Q.length - 1) ? 'Ver resultado →' : 'Próxima questão →';
+    paintProg();
+  });
+
+  elNext.addEventListener('click', function(){
+    i++;
+    if (i >= Q.length){ finish(); return; }
+    render();
+    elQuiz.scrollIntoView({block:'start', behavior:'smooth'});
+  });
+
+  function finish(){
+    elQuiz.style.display = 'none';
+    elDone.style.display = 'block';
+    var pct = Math.round(score / Q.length * 100);
+    document.getElementById('final').textContent = score + '/' + Q.length + ' · ' + pct + '%';
+
+    var v = document.getElementById('verdict');
+    if (score === Q.length){
+      v.innerHTML = 'Sete de sete. A classificação essencial × derivado está firme — é o alicerce das próximas doze semanas. Na semana 2 o tema é o <strong>Método Clínico Centrado na Pessoa</strong>, que se apoia diretamente nisto.';
+    } else if (score >= 5){
+      v.innerHTML = 'Base sólida, com arestas. O corte da prova é <strong>66,7%</strong> e a meta de trabalho do plano é <strong>78%</strong> — você está na faixa. Vale fechar as lacunas abaixo antes de seguir para a semana 2.';
+    } else {
+      v.innerHTML = 'Este é o tema-alicerce, então vale refazer. Reler os sete cartões acima e repetir o quiz amanhã — não hoje. O intervalo de um dia é parte do mecanismo: lembrar depois de esquecer um pouco é o que produz retenção.';
+    }
+
+    if (missed.length){
+      var mb = document.getElementById('missblock');
+      var h = '<p style="font-family:var(--sans);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:1.3rem 0 .3rem">Para o caderno de erros</p><ol class="misslist">';
+      missed.forEach(function(m){
+        h += '<li><strong>Questão ' + (m + 1) + '</strong> — resposta correta: ' +
+             'ABCD'.charAt(Q[m].ans) + ') ' + Q[m].opts[Q[m].ans] +
+             '<br><span style="color:var(--ink-soft);font-size:.93em">' + Q[m].src + '</span></li>';
+      });
+      h += '</ol><p class="noprint-note">Anote para cada uma: o que a questão pedia, por que errou, e a frase de correção.</p>';
+      mb.innerHTML = h;
+    }
+    elDone.scrollIntoView({block:'start', behavior:'smooth'});
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>

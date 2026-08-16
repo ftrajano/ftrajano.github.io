@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>38º TEMFC — o edital em uma página</title>
+<style>
+  :root{
+    --ink:#1a1a18; --ink-soft:#55524c; --ink-faint:#8a857d;
+    --bg:#fffef9; --rule:#ddd8cc; --accent:#7d2b1d; --accent-soft:#f6ece6;
+    --warn:#8a4b00; --warn-bg:#fdf3e3; --ok:#2c5f2d; --ok-bg:#eef4ea;
+    --serif: "Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:3rem 1.25rem 5rem; background:var(--bg); color:var(--ink);
+    font-family:var(--serif); font-size:17px; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:47rem; margin:0 auto}
+  .eyebrow{
+    font-family:var(--sans); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-faint); margin:0 0 .5rem;
+  }
+  h1{font-size:2rem; line-height:1.15; margin:0 0 .3rem; font-weight:600; letter-spacing:-.01em}
+  .sub{color:var(--ink-soft); font-style:italic; margin:0 0 2rem; font-size:1.02rem}
+  h2{
+    font-family:var(--sans); font-size:.74rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--accent); font-weight:650; margin:2.4rem 0 .8rem;
+    padding-bottom:.35rem; border-bottom:1px solid var(--rule);
+  }
+  p{margin:0 0 .85rem}
+  .lede{font-size:1.05rem}
+
+  /* countdown block */
+  .clock{
+    display:flex; flex-wrap:wrap; gap:0; border:1px solid var(--rule); border-radius:3px;
+    overflow:hidden; margin:0 0 .5rem; background:#fff;
+  }
+  .clock div{flex:1 1 8rem; padding:.85rem 1rem; border-right:1px solid var(--rule)}
+  .clock div:last-child{border-right:0}
+  .clock dt{
+    font-family:var(--sans); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-faint); margin:0 0 .25rem;
+  }
+  .clock dd{margin:0; font-size:1.32rem; font-weight:600; letter-spacing:-.01em; font-variant-numeric:tabular-nums}
+  .clock dd small{font-size:.78rem; font-weight:400; color:var(--ink-soft); letter-spacing:0}
+
+  table{border-collapse:collapse; width:100%; margin:.4rem 0 1rem; font-size:.95rem}
+  th,td{text-align:left; padding:.5rem .7rem; border-bottom:1px solid var(--rule); vertical-align:top}
+  th{
+    font-family:var(--sans); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-faint); font-weight:600; border-bottom:1.5px solid var(--ink-soft);
+  }
+  td.num{font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:600}
+  .scroll{overflow-x:auto}
+
+  .callout{
+    border-left:3px solid var(--warn); background:var(--warn-bg); padding:.9rem 1.1rem;
+    margin:1.2rem 0; border-radius:0 3px 3px 0;
+  }
+  .callout.grave{border-left-color:var(--accent); background:var(--accent-soft)}
+  .callout.good{border-left-color:var(--ok); background:var(--ok-bg)}
+  .callout h3{
+    font-family:var(--sans); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase;
+    margin:0 0 .45rem; color:var(--warn); font-weight:650;
+  }
+  .callout.grave h3{color:var(--accent)}
+  .callout.good h3{color:var(--ok)}
+  .callout p:last-child{margin-bottom:0}
+
+  ul,ol{margin:0 0 .9rem; padding-left:1.35rem}
+  li{margin-bottom:.4rem}
+  strong{font-weight:650}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.88em; background:#f1ede3; padding:.08em .35em; border-radius:2px}
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(125,43,29,.3)}
+  a:hover{border-bottom-color:var(--accent)}
+
+  .formula{
+    font-family:var(--sans); background:#fff; border:1px solid var(--rule); border-radius:3px;
+    padding:1rem 1.15rem; margin:1rem 0; font-size:.94rem;
+  }
+  .formula .row{display:flex; justify-content:space-between; gap:1rem; padding:.3rem 0}
+  .formula .row.total{border-top:1.5px solid var(--ink-soft); margin-top:.45rem; padding-top:.55rem; font-weight:650}
+  .formula .row span:last-child{font-variant-numeric:tabular-nums; white-space:nowrap}
+
+  footer{margin-top:3.5rem; padding-top:1rem; border-top:1px solid var(--rule);
+    font-family:var(--sans); font-size:.76rem; color:var(--ink-faint)}
+  footer a{color:var(--ink-faint); border-bottom-color:rgba(0,0,0,.15)}
+  .nav{font-family:var(--sans); font-size:.8rem; margin-top:1.4rem}
+
+  @media print{
+    body{padding:0; font-size:10.5pt; background:#fff}
+    .wrap{max-width:none}
+    h2{margin-top:1.1rem}
+    .callout,.clock,.formula,table{break-inside:avoid}
+    a{border-bottom:0; color:var(--ink)}
+    footer,.nav{display:none}
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ink:#eae6dd; --ink-soft:#b0aaa0; --ink-faint:#8b857b;
+      --bg:#171614; --rule:#3a3730; --accent:#e5947f; --accent-soft:#2c1c18;
+      --warn:#e0a75c; --warn-bg:#2a2115; --ok:#8fbe86; --ok-bg:#1b241a;
+    }
+    :root:not([data-theme="light"]) .clock,
+    :root:not([data-theme="light"]) .formula{background:#1e1d1a}
+    :root:not([data-theme="light"]) code{background:#2a2823}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Referência 01 · Documento do certame</p>
+  <h1>38º TEMFC — o edital em uma página</h1>
+  <p class="sub">Exame de Suficiência para obtenção do Título de Especialista em Medicina de Família e Comunidade · SBMFC · Edital nº 2465</p>
+
+  <dl class="clock">
+    <div><dt>Data da prova</dt><dd>08/11/26 <small>domingo</small></dd></div>
+    <div><dt>Horário (Brasília)</dt><dd>09h–14h <small>5 horas</small></dd></div>
+    <div><dt>Formato</dt><dd>Online <small>com fiscalização remota</small></dd></div>
+    <div><dt>Questões</dt><dd>90 <small>80 + 10</small></dd></div>
+  </dl>
+
+  <h2>As duas provas</h2>
+  <div class="scroll">
+  <table>
+    <thead>
+      <tr><th>Prova</th><th class="num">Questões</th><th>Formato</th><th>Risco</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Teórica</strong><br><span style="color:var(--ink-soft);font-size:.9em">Obrigatória e eliminatória</span></td>
+        <td class="num">80</td>
+        <td>Múltipla escolha, 4 opções (A–D), uma correta. 1 ponto cada.</td>
+        <td>Cobre as 29 referências da bibliografia.</td>
+      </tr>
+      <tr>
+        <td><strong>Teórico-prática</strong><br><span style="color:var(--ink-soft);font-size:.9em">Obrigatória e eliminatória</span></td>
+        <td class="num">10</td>
+        <td>Múltipla escolha (A–D) <strong>acompanhadas de vídeo</strong>, sobre cenários e casos da especialidade. 1 ponto cada.</td>
+        <td><strong>Zerar aqui elimina</strong>, mesmo com nota alta na teórica.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:.92rem;color:var(--ink-soft)">Ao terminar a teórica, a teórico-prática <strong>começa automaticamente</strong>. Não há intervalo nem aviso.</p>
+
+  <h2>A regra que muda tudo</h2>
+  <div class="callout grave">
+    <h3>Não existe voltar atrás</h3>
+    <p>As questões aparecem <strong>uma por vez, em ordem fixa</strong>. O edital é explícito nos itens 10.1.2 a 10.1.10:</p>
+    <ul style="margin-bottom:.5rem">
+      <li>Não é possível escolher a ordem das questões.</li>
+      <li>Não é possível <strong>retornar a questões anteriores</strong>.</li>
+      <li>Não é possível deixar em branco para responder depois.</li>
+      <li>Cada questão precisa ser respondida e <strong>salva</strong> para liberar a próxima.</li>
+      <li>Questão salva é questão concluída — <strong>revisão não existe em hipótese alguma</strong>.</li>
+    </ul>
+    <p>Consequência prática: a habilidade treinável aqui é <strong>decidir e seguir</strong>. Não há estratégia de "marco a dúvida e volto no fim", porque o fim não volta.</p>
+  </div>
+  <p><strong>5 horas ÷ 90 questões = 3min20s por questão.</strong> É folgado para uma prova de múltipla escolha. O inimigo desta prova não é o relógio — é a indecisão travando numa questão que não tem como ser revisitada.</p>
+
+  <h2>Como se aprova</h2>
+  <p>São <strong>dois critérios cumulativos</strong> para se habilitar à análise curricular (item 10.1.12):</p>
+  <div class="formula">
+    <div class="row"><span>Prova Teórica</span><span>máx. 80 pts</span></div>
+    <div class="row"><span>Prova Teórico-Prática</span><span>máx. 10 pts</span></div>
+    <div class="row total"><span>Critério 1 — soma das objetivas</span><span>≥ 60 de 90 &nbsp;(66,7%)</span></div>
+  </div>
+  <div class="formula">
+    <div class="row"><span>Objetivas</span><span>máx. 90 pts</span></div>
+    <div class="row"><span>Pontuação curricular autodeclarada</span><span>ver Anexo II</span></div>
+    <div class="row total"><span>Critério 2 — objetivas + currículo</span><span>≥ 70 pts</span></div>
+  </div>
+  <div class="callout">
+    <h3>A análise curricular também é eliminatória — e já está trancada</h3>
+    <p>Ela é feita <strong>somente para quem já passou nas provas</strong>, e confere o que foi autodeclarado na inscrição. O Anexo II é explícito: <strong>após o encerramento das inscrições não é mais possível alterar informações ou documentos</strong>, e o edital (itens 3.1.4 e 3.1.5) não aceita documentos enviados em sede recursal. Ou seja: o que foi enviado na inscrição é o que vale.</p>
+    <p style="margin-top:.5rem">As duas regras que mais derrubam pontuação, porque dependem de <em>coerência</em> entre o que se declarou e o que se anexou:</p>
+    <ul style="margin:.4rem 0 .5rem">
+      <li>Item com documento anexado mas <strong>sem</strong> o número de títulos autodeclarado → <strong>não é avaliado</strong>.</li>
+      <li>Item com número autodeclarado mas <strong>sem</strong> documento anexado → <strong>não é avaliado</strong>.</li>
+      <li>Declarações devem ter assinatura de Gestor, RH ou Secretário de Saúde (exceto CNES). <strong>Contrato e carteira de trabalho não são aceitos.</strong></li>
+    </ul>
+    <p><strong>A pontuação curricular máxima é 10.</strong> Armadilha do item 2 (experiência em APS): o sistema <em>subtrai</em> 4 pontos correspondentes aos 4 primeiros anos (8 semestres), que são descartados por regra. Como 40h/semana vale 0,5 ponto por semestre, declarar exatamente 8 semestres resulta em <strong>zero</strong> neste tópico — os pontos só começam a contar a partir do 9º semestre.</p>
+  </div>
+
+  <h2>O portão que ninguém vê: o pré-teste</h2>
+  <div class="callout grave">
+    <h3>Obrigatório e eliminatório — sem ele não há prova</h3>
+    <p>Antes das provas existe uma etapa própria, de <strong>caráter obrigatório e eliminatório</strong> (item 1.4.2): o <strong>pré-teste</strong> na plataforma da eduCAT. O edital não deixa margem — <em>"caso o candidato não realize o pré-teste ou seja reprovado, não poderá realizar as próximas etapas"</em>. Somente quem for aprovado no pré-teste ganha acesso ao ambiente de provas (item 9.5.5).</p>
+    <ul style="margin:.6rem 0 .5rem">
+      <li><strong>Janela:</strong> 14/09/2026 a <strong>04/11/2026 às 19h</strong>, em horário comercial, <strong>com agendamento prévio</strong> junto à eduCAT.</li>
+      <li><strong>O manual do candidato chega por e-mail</strong> de <code>suporte@educat.net.br</code> após a homologação — <strong>conferir SPAM e lixeira</strong>. Não chegando em até 72h da lista definitiva de homologados, acionar a secretaria da SBMFC (item 9.5.2).</li>
+      <li>É preciso instalar um <strong>navegador seguro</strong> por conta própria, antes do horário agendado.</li>
+      <li>Exige documento com foto <strong>de menos de 5 anos</strong> e captura de foto por webcam no acesso.</li>
+    </ul>
+    <p><strong>A regra mais fácil de violar sem perceber (item 9.5.9):</strong> o computador usado e configurado no pré-teste <strong>tem de ser o mesmo usado na prova</strong>, <em>sob pena de exclusão do certame</em>. Trocar de notebook entre setembro e novembro — ou fazer o pré-teste no computador do trabalho e a prova em casa — elimina.</p>
+    <p style="margin-top:.5rem">Agendar o pré-teste <strong>logo no início da janela</strong>, não no fim: sobra tempo para resolver problema de hardware, internet ou instalação antes do prazo de 04/11.</p>
+  </div>
+
+  <h2>Meta de estudo</h2>
+  <div class="callout good">
+    <h3>Onde mirar</h3>
+    <p>O corte é 60/90. Mirar em 60 é mirar na borda — qualquer questão anulada, qualquer dia ruim, e a margem acaba. <strong>A meta de trabalho é 70/90 (78%)</strong>, que deixa 10 pontos de folga sobre o corte e cobre o critério 2 quase independentemente do currículo.</p>
+    <p style="margin-top:.5rem">Em questões erradas permitidas: <strong>20 erros em 90</strong>. Isso é bastante — o que significa que a estratégia certa é <em>largura</em> (cobrir os 27 temas de forma decente) e não <em>profundidade</em> em alguns poucos.</p>
+  </div>
+
+  <h2>Datas que importam</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Data</th><th>O quê</th></tr></thead>
+    <tbody>
+      <tr><td class="num">01/09/2026</td><td>Data de corte de elaboração das questões. Conteúdo do <strong>BMJ Best Practice</strong> publicado depois disso <strong>não</strong> é cobrado.</td></tr>
+      <tr><td class="num">11/09/2026</td><td>Resultado <strong>preliminar</strong> das inscrições homologadas. Abre o prazo de recurso contra não-homologação.</td></tr>
+      <tr><td class="num">14/09/2026</td><td>Abre a janela do <strong>pré-teste obrigatório e eliminatório</strong>. Agendar cedo.</td></tr>
+      <tr><td class="num">15/09/2026</td><td>Prazo <strong>limite</strong> para recurso de homologação, 18h. Fora do prazo ou fora do sistema não é aceito.</td></tr>
+      <tr><td class="num">21/09/2026</td><td>Resultado <strong>definitivo</strong> das inscrições homologadas. O manual do candidato deve chegar por e-mail em até 72h.</td></tr>
+      <tr><td class="num">04/11/2026</td><td><strong>Prazo final do pré-teste</strong>, 19h. Sem pré-teste aprovado, não há acesso à prova.</td></tr>
+      <tr><td class="num">08/11/2026</td><td><strong>Prova</strong>, 09h–14h (Brasília), plataforma online. No mesmo computador do pré-teste.</td></tr>
+      <tr><td class="num">09/11/2026</td><td>Caderno de questões, gabarito preliminar e espelho de respostas, 18h. Abre prazo de recurso contra o gabarito.</td></tr>
+      <tr><td class="num">11/11/2026</td><td>Prazo limite de recurso contra o gabarito preliminar, 18h.</td></tr>
+      <tr><td class="num">11/12/2026</td><td>Gabarito definitivo e respostas aos recursos.</td></tr>
+      <tr><td class="num">08/01/2027</td><td>Resultado preliminar da <strong>análise curricular</strong>. Abre prazo de recurso.</td></tr>
+      <tr><td class="num">29/01/2027</td><td>Limite do recurso curricular, resultado do recurso e <strong>resultado final</strong>.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Logística da prova online</h2>
+  <p>A prova é fiscalizada remotamente e o edital detalha exigências de ambiente. Os pontos com potencial de eliminar por descuido:</p>
+  <ul>
+    <li>O local deve funcionar <strong>como uma sala de prova durante as 5 horas inteiras</strong>.</li>
+    <li>Exige <strong>notebook + smartphone</strong>: o celular filma o candidato, a mesa, o computador e o entorno. Câmera descoberta, imagem nítida, aparelho no silencioso.</li>
+    <li>A fiscalização pode pedir reposicionamento do celular durante o exame.</li>
+    <li>Interrupções não geram acréscimo de tempo; questão não respondida no prazo recebe zero.</li>
+  </ul>
+  <div class="callout">
+    <h3>Fazer antes de novembro, não no dia</h3>
+    <p>Testar o setup completo — internet, notebook, suporte para o celular, carregadores, ambiente sem interrupção por 5 horas — com semanas de antecedência. Uma parte não trivial das eliminações em provas online é técnica, não de conteúdo. Ler o <a href="https://sbmfc.org.br/noticias/faq-38-temfc/">FAQ do TEMFC 38</a> com atenção.</p>
+  </div>
+
+  <h2>Fontes</h2>
+  <ul style="font-size:.9rem">
+    <li><a href="https://sbmfc.org.br/wp-content/uploads/2026/06/EDITAL-TEMFC-38-No-2465-1.pdf">Edital TEMFC 38 nº 2465</a> — itens 1.5, 9.6, 9.7, 10.1, 10.1.12, 11.1</li>
+    <li><a href="https://sbmfc.org.br/wp-content/uploads/2026/06/ANEXO-I-CONTEUDO-PROGRAMATICO-E-REFERENCIAS-BIBLIOGRAFICAS.pdf">Anexo I — Conteúdo Programático e Referências Bibliográficas</a></li>
+    <li><a href="https://sbmfc.org.br/wp-content/uploads/2026/07/ANEXO-II-ITENS-PONTUAVEIS-DO-CURRICULO-TEMFC-38.pdf">Anexo II — Itens Pontuáveis do Currículo</a></li>
+    <li><a href="https://sbmfc.org.br/concurso-atual/">SBMFC — Concurso Atual</a></li>
+  </ul>
+
+  <p class="nav">→ Próximo: <a href="./02-plano-13-semanas.html">Plano de 13 semanas</a> · <a href="../lessons/0001-atributos-da-aps.html">Lição 01: os sete atributos da APS</a></p>
+
+  <footer>
+    Referência 01 · Compilado do Edital TEMFC 38 nº 2465 e anexos, SBMFC.
+    Em caso de divergência, <strong>o edital oficial prevalece</strong>.
+  </footer>
+</div>
+</body>
+</html>

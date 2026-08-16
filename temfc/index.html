@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>38º TEMFC — central de estudos</title>
+<style>
+  :root{
+    --ink:#1a1a18; --ink-soft:#55524c; --ink-faint:#8a857d;
+    --bg:#fffef9; --card:#fff; --rule:#ddd8cc;
+    --accent:#7d2b1d; --accent-soft:#f6ece6;
+    --warn:#8a4b00; --warn-bg:#fdf3e3; --ok:#2c5f2d; --ok-bg:#eef4ea;
+    --f1:#2f5d75; --f2:#6b4e8f; --f3:#8a6a1f; --f4:#7d2b1d;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:2.6rem 1.25rem 5rem;background:var(--bg);color:var(--ink);
+    font-family:var(--serif);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:54rem;margin:0 auto}
+  .eyebrow{font-family:var(--sans);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-faint);margin:0 0 .5rem}
+  h1{font-size:2.15rem;line-height:1.12;margin:0 0 .3rem;font-weight:600;letter-spacing:-.015em}
+  .sub{color:var(--ink-soft);font-style:italic;margin:0 0 2rem;font-size:1.02rem}
+  h2{font-family:var(--sans);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent);font-weight:650;margin:2.7rem 0 .9rem;padding-bottom:.35rem;
+    border-bottom:1px solid var(--rule)}
+  p{margin:0 0 .85rem} ul,ol{margin:0 0 .9rem;padding-left:1.35rem} li{margin-bottom:.4rem}
+  strong{font-weight:650}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(125,43,29,.28)}
+  a:hover{border-bottom-color:var(--accent)}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.87em;
+    background:#f1ede3;padding:.08em .35em;border-radius:2px}
+
+  /* hero counters */
+  .hero{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--rule);border-radius:4px;
+    overflow:hidden;background:var(--card);margin:0 0 1.4rem}
+  .hero div{flex:1 1 9rem;padding:.95rem 1.1rem;border-right:1px solid var(--rule)}
+  .hero div:last-child{border-right:0}
+  .hero dt{font-family:var(--sans);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-faint);margin:0 0 .3rem}
+  .hero dd{margin:0;font-size:1.5rem;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .hero dd small{font-size:.72rem;font-weight:400;color:var(--ink-soft);letter-spacing:0;display:block;
+    margin-top:.1rem;font-variant-numeric:normal}
+
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.8rem;margin:.5rem 0 1rem}
+  .c{border:1px solid var(--rule);border-radius:4px;background:var(--card);padding:1rem 1.1rem;
+    display:flex;flex-direction:column}
+  .c .tag{font-family:var(--sans);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
+    font-weight:700;color:#fff;background:var(--ink-faint);padding:.1em .4em;border-radius:2px;
+    align-self:flex-start;margin-bottom:.5rem}
+  .c .tag.ref{background:var(--f1)} .c .tag.les{background:var(--f2)}
+  .c .tag.doc{background:var(--f3)} .c .tag.wk{background:var(--ink-soft)}
+  .c a.t{font-size:1.05rem;font-weight:650;border-bottom:0;display:block;margin-bottom:.25rem;line-height:1.3}
+  .c p{font-size:.92rem;color:var(--ink-soft);margin:0;line-height:1.45}
+
+  .callout{border-left:3px solid var(--warn);background:var(--warn-bg);padding:.9rem 1.1rem;
+    margin:1.2rem 0;border-radius:0 3px 3px 0}
+  .callout.grave{border-left-color:var(--accent);background:var(--accent-soft)}
+  .callout.good{border-left-color:var(--ok);background:var(--ok-bg)}
+  .callout h3{font-family:var(--sans);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+    margin:0 0 .45rem;color:var(--warn);font-weight:650}
+  .callout.grave h3{color:var(--accent)} .callout.good h3{color:var(--ok)}
+  .callout p:last-child,.callout ul:last-child{margin-bottom:0}
+
+  .scroll{overflow-x:auto;margin:.4rem 0 1rem}
+  table{border-collapse:collapse;width:100%;font-size:.88rem}
+  th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{font-family:var(--sans);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-faint);font-weight:600;border-bottom:1.5px solid var(--ink-soft)}
+  td.wk{font-family:var(--sans);font-weight:700;white-space:nowrap;font-size:.83rem;font-variant-numeric:tabular-nums}
+  td.dt{font-family:var(--sans);font-size:.76rem;color:var(--ink-soft);white-space:nowrap;font-variant-numeric:tabular-nums}
+  tr.f1 td.wk{color:var(--f1)} tr.f2 td.wk{color:var(--f2)}
+  tr.f3 td.wk{color:var(--f3)} tr.f4 td.wk{color:var(--f4)}
+  tr.now{background:var(--accent-soft)}
+  tr.now td{border-bottom-color:var(--accent)}
+  tr.past{opacity:.5}
+  .badge{font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;background:var(--accent);color:#fffef9;padding:.1em .35em;
+    border-radius:2px;margin-left:.35rem;white-space:nowrap}
+  .free{font-family:var(--sans);font-size:.62rem;font-weight:700;color:var(--ok);
+    border:1px solid var(--ok);padding:.02em .28em;border-radius:2px;margin-left:.3rem}
+  .paid{font-family:var(--sans);font-size:.62rem;font-weight:700;color:var(--warn);
+    border:1px solid var(--warn);padding:.02em .28em;border-radius:2px;margin-left:.3rem}
+  .biblio{columns:2;column-gap:2rem;font-size:.9rem;margin:.5rem 0 1rem}
+  .biblio li{break-inside:avoid;margin-bottom:.45rem}
+  @media(max-width:34rem){.biblio{columns:1}}
+  /* cobertura */
+  .covbar{display:flex;height:.7rem;border-radius:3px;overflow:hidden;border:1px solid var(--rule);margin:.2rem 0 .5rem}
+  .covbar i{display:block}
+  .covbar i.ok{background:var(--ok)} .covbar i.parcial{background:var(--warn)} .covbar i.todo{background:var(--rule)}
+  .covlegend{display:flex;gap:1.1rem;flex-wrap:wrap;align-items:center;font-family:var(--sans);
+    font-size:.78rem;color:var(--ink-soft);margin:0 0 .3rem}
+  .covlegend b{display:inline-block;width:.6rem;height:.6rem;border-radius:2px;margin-right:.35rem}
+  .covlegend b.ok{background:var(--ok)} .covlegend b.parcial{background:var(--warn)}
+  .covlegend b.todo{background:var(--rule);border:1px solid var(--ink-faint)}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(13.5rem,1fr));gap:.35rem;margin:.9rem 0 1rem}
+  .chip{font-family:var(--sans);font-size:.78rem;line-height:1.3;border:1px solid var(--rule);
+    border-left:3px solid var(--rule);border-radius:0 3px 3px 0;padding:.4rem .55rem;
+    background:var(--card);display:flex;align-items:baseline;gap:.4rem;color:var(--ink-soft)}
+  .chip b{font-weight:700;color:var(--ink-faint);font-variant-numeric:tabular-nums;flex:0 0 auto;font-size:.72rem}
+  .chip i{margin-left:auto;font-style:normal;font-size:.68rem;color:var(--ink-faint);flex:0 0 auto}
+  .chip em{font-style:normal;color:var(--accent);font-weight:700}
+  .chip.ok{border-left-color:var(--ok);background:var(--ok-bg);color:var(--ink)}
+  .chip.ok b{color:var(--ok)}
+  .chip.parcial{border-left-color:var(--warn);background:var(--warn-bg);color:var(--ink)}
+  .chip.parcial b{color:var(--warn)}
+  .todo{list-style:none;padding:0;font-size:.94rem}
+  .todo li{padding-left:1.5rem;position:relative;margin-bottom:.5rem}
+  .todo li::before{content:"☐";position:absolute;left:0;color:var(--ink-faint);font-size:1.05em}
+  .todo li.hot::before{content:"⚠";color:var(--accent)}
+  .todo li.dead::before{content:"☑";color:var(--ok)}
+  .todo li.dead{color:var(--ink-faint);text-decoration:line-through}
+  footer{margin-top:3.5rem;padding-top:1rem;border-top:1px solid var(--rule);
+    font-family:var(--sans);font-size:.76rem;color:var(--ink-faint)}
+  @media print{body{padding:0;font-size:10pt;background:#fff}.wrap{max-width:none}
+    a{border-bottom:0;color:var(--ink)}.c,.callout,table{break-inside:avoid}}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ink:#eae6dd;--ink-soft:#b0aaa0;--ink-faint:#8b857b;--bg:#171614;--card:#1e1d1a;--rule:#3a3730;
+      --accent:#e5947f;--accent-soft:#2c1c18;--warn:#e0a75c;--warn-bg:#2a2115;--ok:#8fbe86;--ok-bg:#1b241a;
+      --f1:#7fb0c9;--f2:#b299d6;--f3:#d4b45e;--f4:#e5947f;
+    }
+    :root:not([data-theme="light"]) code{background:#2a2823}
+    :root:not([data-theme="light"]) .badge{color:#171614}
+    :root:not([data-theme="light"]) .c .tag{color:#171614}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Central de estudos</p>
+  <h1>38º TEMFC</h1>
+  <p class="sub">Título de Especialista em Medicina de Família e Comunidade · SBMFC · prova em 8 de novembro de 2026</p>
+
+  <dl class="hero">
+    <div><dt>Faltam</dt><dd id="dias">—</dd></div>
+    <div><dt>Semana do plano</dt><dd id="sem">—</dd></div>
+    <div><dt>Meta</dt><dd>70<small>de 90 · corte é 60</small></dd></div>
+    <div><dt>Prova</dt><dd>08/11<small>domingo, 09h–14h</small></dd></div>
+  </dl>
+
+  <div id="agora"></div>
+
+  <h2>O que estudar esta semana</h2>
+  <div id="focoAgora"></div>
+
+  <h2>Documentos de referência</h2>
+  <div class="cards">
+    <div class="c">
+      <span class="tag ref">Referência 01</span>
+      <a class="t" href="./reference/01-edital-em-uma-pagina.html">O edital em uma página</a>
+      <p>Formato das provas, critérios de aprovação, o pré-teste eliminatório e todas as datas. Imprimível.</p>
+    </div>
+    <div class="c">
+      <span class="tag ref">Referência 02</span>
+      <a class="t" href="./reference/02-plano-13-semanas.html">Plano de 13 semanas</a>
+      <p>Os 27 temas cruzados com as 29 referências, distribuídos semana a semana, com ritmo e revisão espaçada.</p>
+    </div>
+  </div>
+
+  <h2>Lições</h2>
+  <div class="cards">
+    <div class="c">
+      <span class="tag les">Lição 01 · Semana 1</span>
+      <a class="t" href="./lessons/0001-atributos-da-aps.html">Os sete atributos da APS</a>
+      <p>Os 4 essenciais e os 3 derivados, com 7 vinhetas clínicas. O quiz trava a resposta ao confirmar, como na prova.</p>
+    </div>
+    <div class="c" style="opacity:.55">
+      <span class="tag wk">Lição 02 · Semana 2</span>
+      <span class="t" style="font-size:1.05rem;font-weight:650;display:block;margin-bottom:.25rem">Método Clínico Centrado na Pessoa</span>
+      <p>Os quatro componentes de Stewart e a distinção entre doença e experiência da doença. <em>Ainda não produzida.</em></p>
+    </div>
+  </div>
+
+  <h2>Documentos oficiais do certame</h2>
+  <div class="cards">
+    <div class="c">
+      <span class="tag doc">PDF oficial</span>
+      <a class="t" href="https://sbmfc.org.br/wp-content/uploads/2026/06/EDITAL-TEMFC-38-No-2465-1.pdf">Edital TEMFC 38 nº 2465</a>
+      <p>50 páginas. Regras, cronograma, formato, critérios. Em caso de divergência, este documento prevalece.</p>
+    </div>
+    <div class="c">
+      <span class="tag doc">PDF oficial</span>
+      <a class="t" href="https://sbmfc.org.br/wp-content/uploads/2026/06/ANEXO-I-CONTEUDO-PROGRAMATICO-E-REFERENCIAS-BIBLIOGRAFICAS.pdf">Anexo I — Conteúdo e bibliografia</a>
+      <p>Os 27 temas e as 29 referências. A lista é fechada: nada fora dela precisa ser estudado.</p>
+    </div>
+    <div class="c">
+      <span class="tag doc">PDF oficial</span>
+      <a class="t" href="https://sbmfc.org.br/wp-content/uploads/2026/07/ANEXO-II-ITENS-PONTUAVEIS-DO-CURRICULO-TEMFC-38.pdf">Anexo II — Pontuação curricular</a>
+      <p>O barema da análise curricular, máximo de 10 pontos. Já trancado: não se altera após a inscrição.</p>
+    </div>
+    <div class="c">
+      <span class="tag doc">Online</span>
+      <a class="t" href="https://sbmfc.org.br/concurso-atual/">SBMFC — Concurso atual</a>
+      <p>Página oficial. Resultados, gabaritos e comunicados aparecem aqui. Conferir nas datas do cronograma.</p>
+    </div>
+  </div>
+
+  <h2>O plano completo</h2>
+  <div class="scroll">
+    <table id="tabela">
+      <thead><tr><th>Sem.</th><th>Datas</th><th>Tema</th><th>Referências</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p style="font-size:.88rem;color:var(--ink-soft)">Detalhes de cada semana, ritmo diário e mecânica da revisão espaçada: <a href="./reference/02-plano-13-semanas.html">Referência 02</a>.</p>
+
+  <h2>Cobertura do programa</h2>
+  <div id="cobertura"></div>
+
+  <h2>Bibliografia oficial — acesso direto</h2>
+  <div class="callout">
+    <h3>Os PDFs grátis sozinhos não fecham o programa</h3>
+    <p>Das 29 referências, <strong>21 são PDF gratuito</strong>, 7 são livros e 1 é assinatura. Mas essa divisão corta o programa por assunto, e não por acaso:</p>
+    <ul style="margin:.5rem 0">
+      <li><strong>Os PDFs grátis cobrem bem a clínica e as políticas</strong> — tuberculose, dengue, HIV, IST, Chagas, hipertensão 2025, calendário vacinal, PNAB, populações específicas. Isso inclui o tema 16, que é o maior bloco da prova.</li>
+      <li><strong>Os livros cobrem a identidade da MFC</strong> — princípios, saúde coletiva, MCCP, abordagem familiar e comunitária, raciocínio clínico, comunicação, formação, pesquisa. Os temas 1, 3, 4, 6, 7, 8, 9, 11 e 12 <strong>não têm nenhum PDF gratuito no edital</strong>.</li>
+    </ul>
+    <p>É exatamente aí que a prova se separa de uma prova de clínica geral — então não dá para pular.</p>
+  </div>
+  <div class="callout good">
+    <h3>Mas não são 7 livros — são 2</h3>
+    <p><strong>1º · Gusso, Tratado de MFC, Vol. 1</strong> — inegociável. Única fonte de cerca de dez dos vinte e sete temas.<br>
+       <strong>2º · Stewart, Medicina Centrada na Pessoa</strong> — alimenta a teórica e as 10 questões em vídeo.<br>
+       <strong>Os outros cinco</strong> (Asen, Carrió, Dohms, Savassi, Ciasca) cobrem um tema cada e são tocados pelo Gusso. Dá para viver sem, e as lições podem cobri-los a partir de material acadêmico aberto.</p>
+    <p style="margin-top:.5rem"><strong>Antes de comprar:</strong> checar <em>Minha Biblioteca</em> ou biblioteca institucional — os títulos da Artmed costumam estar lá, e faculdades e algumas secretarias de saúde assinam. O BMJ pode vir de graça pelo CRM, pela secretaria ou pelo Portal Saúde Baseada em Evidências.</p>
+  </div>
+  <p style="font-size:.93rem">Lista completa abaixo. <span class="free">grátis</span> = PDF aberto, já linkado. <span class="paid">livro</span> = precisa de acesso.</p>
+  <ul class="biblio">
+    <li><strong>[2]</strong> Tratado de MFC (Gusso), Vol. 1 <span class="paid">livro</span><br><span style="font-size:.85em;color:var(--ink-soft)">Exceto caps. 79, 86–89, 98–105</span></li>
+    <li><strong>[16]</strong> Medicina Centrada na Pessoa (Stewart) <span class="paid">livro</span></li>
+    <li><strong>[6]</strong> Comunicação Clínica (Dohms &amp; Gusso) <span class="paid">livro</span></li>
+    <li><strong>[13]</strong> 10 Minutos para a Família (Asen) <span class="paid">livro</span></li>
+    <li><strong>[14]</strong> Entrevista Clínica (Carrió) <span class="paid">livro</span></li>
+    <li><strong>[3]</strong> Tratado de Atenção Domiciliar (Savassi) <span class="paid">livro</span></li>
+    <li><strong>[5]</strong> Saúde LGBTQIA+ (Ciasca) <span class="paid">livro</span></li>
+    <li><strong>[1]</strong> <a href="https://bestpractice.bmj.com/info/pt">BMJ Best Practice</a> <span class="paid">assinatura</span><br><span style="font-size:.85em;color:var(--ink-soft)">Só tópicos até 01/09/2026</span></li>
+    <li><strong>[11]</strong> <a href="https://bvsms.saude.gov.br/bvs/saudelegis/gm/2017/prt2436_22_09_2017.html">PNAB — Portaria 2.436/2017</a> <span class="free">grátis</span></li>
+    <li><strong>[4]</strong> <a href="https://bvsms.saude.gov.br/bvs/publicacoes/manual_recomendacoes_controle_tuberculose_brasil_2_ed.pdf">Tuberculose no Brasil</a> <span class="free">grátis</span></li>
+    <li><strong>[17]</strong> <a href="https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/svsa/dengue/dengue-diagnostico-e-manejo-clinico-adulto-e-crianca">Dengue — diagnóstico e manejo</a> <span class="free">grátis</span></li>
+    <li><strong>[19]</strong> <a href="https://www.gov.br/aids/pt-br/central-de-conteudo/pcdts/pcdt_hiv_modulo_1_2024.pdf">PCDT HIV 2024</a> <span class="free">grátis</span></li>
+    <li><strong>[20]</strong> <a href="https://www.gov.br/aids/pt-br/central-de-conteudo/pcdts/2022/ist/pcdt-ist-2022_isbn-1.pdf">PCDT IST 2022</a> <span class="free">grátis</span></li>
+    <li><strong>[25]</strong> <a href="https://abccardiol.org/article/diretriz-brasileira-de-hipertensao-arterial-2025/">Diretriz de Hipertensão 2025</a> <span class="free">grátis</span></li>
+    <li><strong>[21]</strong> <a href="https://www.gov.br/saude/pt-br/vacinacao/calendario">Calendário de Vacinação</a> <span class="free">grátis</span></li>
+    <li><strong>[22]</strong> <a href="https://www.sbmfc.org.br/wp-content/uploads/2022/04/CARTILHA_FINAL-Gravidez-Indesejada-na-APS.pdf">Gravidez Indesejada na APS (SBMFC)</a> <span class="free">grátis</span></li>
+    <li><strong>[23]</strong> <a href="https://www.gov.br/saude/pt-br/vacinacao/publicacoes/estrategia-de-vacinacao-contra-o-virus-sincicial-respiratorio-em-gestantes.pdf">Vacinação VSR em gestantes</a> <span class="free">grátis</span></li>
+    <li><strong>[7]</strong> <a href="https://bvsms.saude.gov.br/bvs/publicacoes/politica_nacional_saude_populacao_negra_3d.pdf">Saúde da População Negra</a> <span class="free">grátis</span></li>
+    <li><strong>[10]</strong> <a href="http://bvsms.saude.gov.br/bvs/publicacoes/atencao_domiciliar_primaria_saude.pdf">Atenção Domiciliar na APS</a> <span class="free">grátis</span></li>
+    <li><strong>[18]</strong> <a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/t/tetano-acidental/publicacoes/guia-de-vigilancia-em-saude-6a-edicao.pdf">Guia de Vigilância em Saúde, 6ª ed.</a> <span class="free">grátis</span></li>
+    <li><strong>[8]</strong> <a href="https://rbmfc.org.br/rbmfc/article/view/1992">Saúde Planetária (RBMFC)</a> <span class="free">grátis</span></li>
+    <li><strong>[9]</strong> <a href="https://doi.org/10.26633/RPSP.2018.184">Saúde Indígena no Brasil</a> <span class="free">grátis</span></li>
+    <li><strong>[29]</strong> <a href="https://bvsms.saude.gov.br/bvs/saudelegis/gm/2014/pri0001_02_01_2014.html">PNAISP — sistema prisional</a> <span class="free">grátis</span></li>
+    <li><strong>[24]</strong> <a href="https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/svsa/doenca-de-chagas/protocolo-clinico-e-diretrizes-terapeuticas-para-doenca-de-chagas-_-relatorio-de-recomendacao.pdf/view">PCDT Doença de Chagas</a> <span class="free">grátis</span></li>
+    <li><strong>[27]</strong> <a href="https://www.gov.br/saude/pt-br/assuntos/pcdt">PCDTs — índice</a> <span class="free">grátis</span></li>
+    <li><strong>[28]</strong> <a href="https://linhasdecuidado.saude.gov.br/portal/">Linhas de Cuidado</a> <span class="free">grátis</span></li>
+    <li><strong>[26]</strong> Referência não identificada <span class="paid">?</span><br><span style="font-size:.85em;color:var(--ink-soft)">Link cru do WHO IRIS, sem título no edital</span></li>
+  </ul>
+  <p style="font-size:.88rem;color:var(--ink-soft)">Lista completa e anotada, com quando usar cada uma: lista anotada completa. As referências <strong>[12]</strong> e <strong>[15]</strong> são publicações do MS sem link direto no edital.</p>
+
+  <h2>Pendências</h2>
+  <ul class="todo">
+    <li class="hot"><strong>Agendar o pré-teste</strong> assim que chegar o e-mail da eduCAT (após 21/09). Etapa eliminatória — sem ela não há prova. Conferir o SPAM.</li>
+    <li class="hot"><strong>Definir o computador da prova</strong> antes do pré-teste. Tem de ser o mesmo nos dois, sob pena de exclusão.</li>
+    <li class="hot"><strong>Conferir a homologação em 11/09.</strong> Recurso só até 15/09 às 18h.</li>
+    <li>Conseguir acesso ao <strong>Gusso, Tratado de MFC Vol. 1</strong> — checar Minha Biblioteca antes de comprar.</li>
+    <li>Verificar acesso ao <strong>BMJ Best Practice</strong> pelo CRM, secretaria de saúde ou Portal Saúde Baseada em Evidências.</li>
+    <li>Separar um <strong>documento com foto de menos de 5 anos</strong> para o pré-teste e para a prova.</li>
+    <li class="dead">Inscrição confirmada.</li>
+    <li class="dead">Pontuação curricular — trancada após o fim das inscrições.</li>
+  </ul>
+
+
+  <footer>
+    Central de estudos gerada a partir do Edital TEMFC 38 nº 2465 e seus anexos (SBMFC).
+    Contagem regressiva e semana atual calculadas no seu navegador.
+    Em caso de divergência, <strong>o edital oficial prevalece</strong>.
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var PLANO = [
+    {s:1,  f:1, ini:"10/08", fim:"16/08", tema:"Princípios da MFC · Princípios da APS", refs:"[2] Gusso · [11] PNAB"},
+    {s:2,  f:1, ini:"17/08", fim:"23/08", tema:"Método Clínico Centrado na Pessoa · Comunicação", refs:"[16] Stewart · [6] · [14]"},
+    {s:3,  f:1, ini:"24/08", fim:"30/08", tema:"Abordagem Familiar · Abordagem Comunitária", refs:"[13] Asen · [2] Gusso"},
+    {s:4,  f:1, ini:"31/08", fim:"06/09", tema:"Raciocínio clínico · MBE · Rastreamento", refs:"[2] · [1] BMJ · [28]"},
+    {s:5,  f:2, ini:"07/09", fim:"13/09", tema:"Prevalentes I — cardiometabólico", refs:"[25] HAS 2025 · [1] · [2]"},
+    {s:6,  f:2, ini:"14/09", fim:"20/09", tema:"Prevalentes II — infectologia na APS", refs:"[4] · [17] · [19] · [20] · [24]"},
+    {s:7,  f:2, ini:"21/09", fim:"27/09", tema:"Criança e adolescente · Imunização", refs:"[21] Calendário · [23] · [2]"},
+    {s:8,  f:2, ini:"28/09", fim:"04/10", tema:"Saúde da mulher · Pessoa idosa", refs:"[22] SBMFC · [15] IVCF-20"},
+    {s:9,  f:2, ini:"05/10", fim:"11/10", tema:"Cuidados paliativos · Cuidado domiciliar", refs:"[3] Savassi · [10] · [6]"},
+    {s:10, f:3, ini:"12/10", fim:"18/10", tema:"Vigilância · Urgência · Procedimentos", refs:"[18] Guia Vigilância · [2]"},
+    {s:11, f:3, ini:"19/10", fim:"25/10", tema:"Equidade e populações específicas", refs:"[7] · [5] · [9] · [29]"},
+    {s:12, f:3, ini:"26/10", fim:"01/11", tema:"Sistema, gestão e temas transversais", refs:"[8] · [12] · [11] · [2]"},
+    {s:13, f:4, ini:"02/11", fim:"08/11", tema:"Revisão dos erros · Simulado · Logística", refs:"Caderno de erros"}
+  ];
+
+  var INICIO = new Date(2026, 7, 10);          // 10/08/2026, semana 1
+  var PROVA  = new Date(2026, 10, 8, 9, 0, 0); // 08/11/2026 09h
+  var hoje = new Date();
+  var hojeZero = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+
+  var MS = 86400000;
+  var provaZero = new Date(PROVA.getFullYear(), PROVA.getMonth(), PROVA.getDate());
+  var dias = Math.round((provaZero - hojeZero) / MS);
+  var semana = Math.floor((hojeZero - INICIO) / (7 * MS)) + 1;
+
+  var elDias = document.getElementById('dias');
+  if (dias > 1)        elDias.innerHTML = dias + '<small>dias</small>';
+  else if (dias === 1) elDias.innerHTML = '1<small>dia — é amanhã</small>';
+  else if (dias === 0) elDias.innerHTML = 'hoje<small>09h–14h · boa prova</small>';
+  else                 elDias.innerHTML = '—<small>prova realizada</small>';
+
+  var elSem = document.getElementById('sem');
+  if (semana < 1)        elSem.innerHTML = '—<small>o plano começa em 10/08</small>';
+  else if (semana <= 13) elSem.innerHTML = semana + '<small>de 13</small>';
+  else                   elSem.innerHTML = '—<small>plano concluído</small>';
+
+  // tabela do plano
+  var tb = document.querySelector('#tabela tbody');
+  PLANO.forEach(function(w){
+    var tr = document.createElement('tr');
+    tr.className = 'f' + w.f + (w.s === semana ? ' now' : (w.s < semana ? ' past' : ''));
+    var td1 = document.createElement('td'); td1.className = 'wk';
+    td1.textContent = 'S' + w.s;
+    if (w.s === semana){ var b = document.createElement('span'); b.className='badge'; b.textContent='agora'; td1.appendChild(b); }
+    var td2 = document.createElement('td'); td2.className = 'dt'; td2.textContent = w.ini + '–' + w.fim;
+    var td3 = document.createElement('td'); td3.textContent = w.tema;
+    var td4 = document.createElement('td'); td4.className = 'dt'; td4.textContent = w.refs;
+    tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); tr.appendChild(td4);
+    tb.appendChild(tr);
+  });
+
+  // foco da semana
+  var foco = document.getElementById('focoAgora');
+  var atual = PLANO.filter(function(w){ return w.s === semana; })[0];
+  if (atual){
+    var licao = (semana === 1)
+      ? '<p style="margin-top:.5rem"><strong>Lição desta semana:</strong> <a href="./lessons/0001-atributos-da-aps.html">Os sete atributos da APS</a> — 7 vinhetas, quiz que trava a resposta. Cerca de 20 minutos.</p>'
+      : '<p style="margin-top:.5rem">A lição desta semana ainda não foi produzida. Peça ao Felipe.</p>';
+    foco.innerHTML =
+      '<div class="callout good"><h3>Semana ' + atual.s + ' de 13 · ' + atual.ini + ' a ' + atual.fim + '</h3>' +
+      '<p><strong>' + atual.tema + '</strong></p>' +
+      '<p style="margin-top:.3rem;font-size:.93rem">Referências: ' + atual.refs + '</p>' +
+      licao + '</div>';
+  } else if (semana < 1){
+    foco.innerHTML = '<div class="callout"><h3>O plano começa em 10/08/2026</h3><p>Até lá, vale ler a <a href="./reference/01-edital-em-uma-pagina.html">Referência 01</a> para entender o formato da prova.</p></div>';
+  } else {
+    foco.innerHTML = '<div class="callout"><h3>Plano concluído</h3><p>As 13 semanas terminaram. Consulte o caderno de erros.</p></div>';
+  }
+
+  // ---- cobertura do programa ----
+  // st: 'ok' = ensinado em lição · 'parcial' = tocado de leve · 'todo' = ainda não produzido
+  var TEMAS = [
+    {n:1,  t:"Princípios da MFC",                  sem:"S1",    st:"parcial"},
+    {n:2,  t:"Princípios da APS",                  sem:"S1",    st:"ok"},
+    {n:3,  t:"Saúde Coletiva",                     sem:"S12",   st:"todo"},
+    {n:4,  t:"Método Clínico Centrado na Pessoa",  sem:"S2",    st:"todo"},
+    {n:5,  t:"Medicina baseada em Evidências",     sem:"S4",    st:"todo"},
+    {n:6,  t:"Abordagem Familiar",                 sem:"S3",    st:"todo"},
+    {n:7,  t:"Abordagem Comunitária",              sem:"S3",    st:"todo"},
+    {n:8,  t:"Raciocínio Clínico",                 sem:"S4",    st:"todo"},
+    {n:9,  t:"Habilidades de comunicação",         sem:"S2",    st:"todo"},
+    {n:10, t:"Ética médica",                       sem:"S12",   st:"todo"},
+    {n:11, t:"Formação em MFC",                    sem:"S12",   st:"todo"},
+    {n:12, t:"Pesquisa médica",                    sem:"S12",   st:"todo"},
+    {n:13, t:"Gestão e processo de trabalho",      sem:"S12",   st:"todo"},
+    {n:14, t:"Equipe multiprofissional",           sem:"S12",   st:"todo"},
+    {n:15, t:"Vigilância em saúde",                sem:"S10",   st:"todo"},
+    {n:16, t:"Problemas prevalentes e ciclos de vida", sem:"S5–S8", st:"todo", big:true},
+    {n:17, t:"Cuidados paliativos",                sem:"S9",    st:"todo"},
+    {n:18, t:"Cuidado domiciliar",                 sem:"S9",    st:"todo"},
+    {n:19, t:"Rastreamento",                       sem:"S4",    st:"todo"},
+    {n:20, t:"Urgência e emergência",              sem:"S10",   st:"todo"},
+    {n:21, t:"Procedimentos ambulatoriais",        sem:"S10",   st:"todo"},
+    {n:22, t:"Saúde planetária",                   sem:"S12",   st:"todo"},
+    {n:23, t:"Saúde LGBTQIA+",                     sem:"S11",   st:"todo"},
+    {n:24, t:"Saúde da população negra",           sem:"S11",   st:"todo"},
+    {n:25, t:"População em situação de rua",       sem:"S11",   st:"todo"},
+    {n:26, t:"Saúde do trabalhador",               sem:"S11",   st:"todo"},
+    {n:27, t:"Povos do campo, águas e florestas",  sem:"S11",   st:"todo"}
+  ];
+
+  var nOk = TEMAS.filter(function(x){return x.st==='ok';}).length;
+  var nPa = TEMAS.filter(function(x){return x.st==='parcial';}).length;
+  var nTo = TEMAS.filter(function(x){return x.st==='todo';}).length;
+  var pct = Math.round((nOk + nPa*0.5) / TEMAS.length * 100);
+
+  var chips = TEMAS.map(function(x){
+    var lbl = x.st==='ok' ? 'ensinado' : (x.st==='parcial' ? 'parcial' : 'pendente');
+    return '<span class="chip ' + x.st + '" title="Tema ' + x.n + ' · ' + lbl + ' · previsto para ' + x.sem + '">' +
+           '<b>' + x.n + '</b>' + x.t + (x.big ? ' <em>▲</em>' : '') + '<i>' + x.sem + '</i></span>';
+  }).join('');
+
+  document.getElementById('cobertura').innerHTML =
+    '<div class="covbar" aria-hidden="true">' +
+      '<i class="ok"   style="flex:' + nOk + '"></i>' +
+      '<i class="parcial" style="flex:' + nPa + '"></i>' +
+      '<i class="todo" style="flex:' + nTo + '"></i>' +
+    '</div>' +
+    '<p class="covlegend">' +
+      '<span><b class="ok"></b>' + nOk + ' ensinado</span>' +
+      '<span><b class="parcial"></b>' + nPa + ' parcial</span>' +
+      '<span><b class="todo"></b>' + nTo + ' pendente</span>' +
+      '<span style="margin-left:auto;font-weight:700;color:var(--ink)">≈' + pct + '% do programa</span>' +
+    '</p>' +
+    '<div class="callout"><h3>Como ler esse número</h3>' +
+      '<p>Os 27 temas <strong>não valem a mesma coisa</strong>. O tema 16 (marcado com ▲) é uma linha só no edital — <em>"problemas de saúde mais prevalentes em todas as faixas etárias e ciclos de vida"</em> — mas é quase certamente o maior bloco das 80 questões, e por isso ocupa quatro semanas do plano (S5 a S8). Contar tema por tema subestima o que falta.</p>' +
+      '<p style="margin-top:.5rem">A SBMFC <strong>não publica a distribuição de questões por tema</strong>, e ainda não localizamos cadernos de provas anteriores. Enquanto isso, qualquer peso é estimativa — este percentual conta temas, não questões.</p>' +
+    '</div>' +
+    '<div class="chips">' + chips + '</div>';
+
+  // alertas por data
+  var alertas = [];
+  function antes(m, d){ return hojeZero <= new Date(2026, m, d); }
+
+  if (antes(8, 11)) alertas.push('<strong>11/09</strong> — sai a homologação preliminar da inscrição. Conferir na área do candidato.');
+  if (antes(8, 15)) alertas.push('<strong>15/09 às 18h</strong> — prazo limite de recurso de homologação. Fora do prazo não é aceito.');
+  if (antes(10, 4)) alertas.push('<strong>Pré-teste obrigatório e eliminatório</strong> — janela de 14/09 a 04/11 às 19h, com agendamento prévio na eduCAT. Sem aprovação nele, não há acesso à prova. Agendar no início da janela.');
+  if (antes(10, 8)) alertas.push('<strong>Mesmo computador</strong> no pré-teste e na prova (edital 9.5.9), sob pena de exclusão do certame.');
+
+  if (alertas.length){
+    document.getElementById('agora').innerHTML =
+      '<div class="callout grave"><h3>Prazos eliminatórios — não são sobre conteúdo</h3><ul style="margin:0;padding-left:1.2rem">' +
+      alertas.map(function(a){ return '<li style="margin-bottom:.35rem">' + a + '</li>'; }).join('') +
+      '</ul></div>';
+  }
+})();
+</script>
+</body>
+</html>

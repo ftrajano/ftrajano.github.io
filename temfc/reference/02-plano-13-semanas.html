@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano de 13 semanas — 38º TEMFC</title>
+<style>
+  :root{
+    --ink:#1a1a18; --ink-soft:#55524c; --ink-faint:#8a857d;
+    --bg:#fffef9; --rule:#ddd8cc; --accent:#7d2b1d; --accent-soft:#f6ece6;
+    --warn:#8a4b00; --warn-bg:#fdf3e3; --ok:#2c5f2d; --ok-bg:#eef4ea;
+    --f1:#2f5d75; --f2:#6b4e8f; --f3:#8a6a1f; --f4:#7d2b1d;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:3rem 1.25rem 5rem;background:var(--bg);color:var(--ink);
+    font-family:var(--serif);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:52rem;margin:0 auto}
+  .eyebrow{font-family:var(--sans);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-faint);margin:0 0 .5rem}
+  h1{font-size:2rem;line-height:1.15;margin:0 0 .3rem;font-weight:600;letter-spacing:-.01em}
+  .sub{color:var(--ink-soft);font-style:italic;margin:0 0 2rem;font-size:1.02rem}
+  h2{font-family:var(--sans);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent);font-weight:650;margin:2.6rem 0 .8rem;padding-bottom:.35rem;
+    border-bottom:1px solid var(--rule)}
+  h3{font-size:1.05rem;margin:1.5rem 0 .5rem;font-weight:650}
+  p{margin:0 0 .85rem}
+  ul,ol{margin:0 0 .9rem;padding-left:1.35rem}
+  li{margin-bottom:.4rem}
+  strong{font-weight:650}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(125,43,29,.3)}
+  a:hover{border-bottom-color:var(--accent)}
+  .scroll{overflow-x:auto;margin:.4rem 0 1rem}
+  table{border-collapse:collapse;width:100%;font-size:.9rem}
+  th,td{text-align:left;padding:.5rem .65rem;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{font-family:var(--sans);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-faint);font-weight:600;border-bottom:1.5px solid var(--ink-soft)}
+  td.wk{font-family:var(--sans);font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums;font-size:.85rem}
+  td.dt{font-family:var(--sans);font-size:.78rem;color:var(--ink-soft);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .ref{font-family:var(--sans);font-size:.7rem;font-weight:700;display:inline-block;
+    background:var(--accent-soft);color:var(--accent);padding:.05em .38em;border-radius:2px;margin-right:.15em}
+  .callout{border-left:3px solid var(--warn);background:var(--warn-bg);padding:.9rem 1.1rem;
+    margin:1.2rem 0;border-radius:0 3px 3px 0}
+  .callout.grave{border-left-color:var(--accent);background:var(--accent-soft)}
+  .callout.good{border-left-color:var(--ok);background:var(--ok-bg)}
+  .callout h3{font-family:var(--sans);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+    margin:0 0 .45rem;color:var(--warn);font-weight:650}
+  .callout.grave h3{color:var(--accent)}
+  .callout.good h3{color:var(--ok)}
+  .callout p:last-child,.callout ul:last-child{margin-bottom:0}
+  .phase{font-family:var(--sans);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+    font-weight:700;padding:.12em .45em;border-radius:2px;color:#fff;white-space:nowrap}
+  .p1{background:var(--f1)} .p2{background:var(--f2)} .p3{background:var(--f3)} .p4{background:var(--f4)}
+  tr.f1 td.wk{color:var(--f1)} tr.f2 td.wk{color:var(--f2)}
+  tr.f3 td.wk{color:var(--f3)} tr.f4 td.wk{color:var(--f4)}
+  .rhythm{font-family:var(--sans);background:#fff;border:1px solid var(--rule);border-radius:3px;
+    padding:0;margin:1rem 0;overflow:hidden;font-size:.9rem}
+  .rhythm .r{display:flex;gap:1rem;padding:.7rem 1rem;border-bottom:1px solid var(--rule);align-items:baseline}
+  .rhythm .r:last-child{border-bottom:0}
+  .rhythm .r b{flex:0 0 5.5rem;font-size:.78rem;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em}
+  .rhythm .r span{flex:1}
+  .rhythm .r em{flex:0 0 3.5rem;text-align:right;font-style:normal;font-weight:650;
+    font-variant-numeric:tabular-nums;color:var(--ink-soft)}
+  .bar{display:flex;height:.55rem;border-radius:3px;overflow:hidden;margin:.5rem 0 .3rem;border:1px solid var(--rule)}
+  .bar i{display:block}
+  .legend{font-family:var(--sans);font-size:.75rem;color:var(--ink-soft);display:flex;gap:1.1rem;flex-wrap:wrap}
+  .legend b{display:inline-block;width:.6rem;height:.6rem;border-radius:2px;margin-right:.3rem;vertical-align:baseline}
+  footer{margin-top:3.5rem;padding-top:1rem;border-top:1px solid var(--rule);
+    font-family:var(--sans);font-size:.76rem;color:var(--ink-faint)}
+  .nav{font-family:var(--sans);font-size:.8rem;margin-top:1.4rem}
+  @media print{
+    body{padding:0;font-size:9.5pt;background:#fff}.wrap{max-width:none}
+    h2{margin-top:1.1rem}table,.callout,.rhythm{break-inside:avoid}
+    a{border-bottom:0;color:var(--ink)}footer,.nav{display:none}
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ink:#eae6dd;--ink-soft:#b0aaa0;--ink-faint:#8b857b;--bg:#171614;--rule:#3a3730;
+      --accent:#e5947f;--accent-soft:#2c1c18;--warn:#e0a75c;--warn-bg:#2a2115;
+      --ok:#8fbe86;--ok-bg:#1b241a;--f1:#7fb0c9;--f2:#b299d6;--f3:#d4b45e;--f4:#e5947f;
+    }
+    :root:not([data-theme="light"]) .rhythm{background:#1e1d1a}
+    :root:not([data-theme="light"]) .phase{color:#171614}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Referência 02 · Plano de estudos</p>
+  <h1>13 semanas até 8 de novembro</h1>
+  <p class="sub">Os 27 temas do conteúdo programático e as 29 referências oficiais, distribuídos de 10/08 a 08/11/2026 — em ordem de rendimento, não de sumário.</p>
+
+  <h2>A descoberta que organiza tudo</h2>
+  <p>Ao cruzar os <strong>27 temas</strong> do conteúdo programático com as <strong>29 referências</strong> da bibliografia, aparece um desequilíbrio que decide a prioridade de compra e de leitura:</p>
+  <div class="callout grave">
+    <h3>O Gusso é a única fonte de cerca de 10 dos 27 temas</h3>
+    <p>Vários temas cobrados <strong>não têm referência dedicada nenhuma</strong> na bibliografia oficial: raciocínio clínico, saúde coletiva, ética médica, pesquisa médica, formação em MFC, rastreamento, urgência e emergência, procedimentos ambulatoriais, trabalho em equipe. Todos eles só podem vir do <span class="ref">2</span> <strong>Tratado de MFC (Gusso), Volume 1</strong> — ou de lugar nenhum.</p>
+    <p style="margin-top:.5rem">Portanto: <strong>o Gusso Vol. 1 é a primeira prioridade de acesso</strong>, e a segunda é o <span class="ref">16</span> Stewart. Sem esses dois, quase metade do conteúdo programático fica sem fonte.</p>
+  </div>
+  <div class="callout">
+    <h3>Dois temas com cobertura fraca na bibliografia</h3>
+    <ul>
+      <li><strong>Saúde da população em situação de rua</strong> — nenhuma referência dedicada. A mais próxima é a <span class="ref">29</span> PNAISP, que trata de pessoas <em>privadas de liberdade</em>, população diferente. Provável que a questão venha do Gusso ou da <span class="ref">11</span> PNAB.</li>
+      <li><strong>Ética médica</strong> — sem referência própria. O Código de Ética Médica do CFM <em>não</em> está na bibliografia, mas é a fonte natural do tema. Vale uma leitura de baixo custo mesmo estando fora da lista.</li>
+    </ul>
+  </div>
+
+  <h2>As quatro fases</h2>
+  <div class="bar" aria-hidden="true">
+    <i class="p1" style="flex:4;background:var(--f1)"></i>
+    <i class="p2" style="flex:5;background:var(--f2)"></i>
+    <i class="p3" style="flex:3;background:var(--f3)"></i>
+    <i class="p4" style="flex:1;background:var(--f4)"></i>
+  </div>
+  <p class="legend">
+    <span><b style="background:var(--f1)"></b>S1–S4 · Núcleo da MFC</span>
+    <span><b style="background:var(--f2)"></b>S5–S9 · Clínica e protocolos</span>
+    <span><b style="background:var(--f3)"></b>S10–S12 · Populações e sistema</span>
+    <span><b style="background:var(--f4)"></b>S13 · Revisão e prova</span>
+  </p>
+  <p>A ordem não é arbitrária. As quatro semanas iniciais atacam <strong>o que diferencia a MFC da medicina clínica geral</strong> — MCCP, princípios, abordagem familiar e comunitária. É onde uma médica que já atende na APS tem mais a ganhar, porque é o vocabulário da banca, não da prática cotidiana. A clínica e os protocolos vêm depois, quando ela já lê as questões com a lente certa.</p>
+
+  <h2>Semana a semana</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Sem.</th><th>Datas</th><th>Temas do conteúdo programático</th><th>Referências</th></tr></thead>
+    <tbody>
+      <tr class="f1"><td class="wk">S1</td><td class="dt">10–16/08</td>
+        <td><strong>Princípios da MFC · Princípios da APS</strong><br><span style="color:var(--ink-soft);font-size:.92em">Atributos da APS, integralidade, longitudinalidade, coordenação do cuidado, organização da atenção básica no SUS</span></td>
+        <td><span class="ref">2</span> Gusso, caps. iniciais<br><span class="ref">11</span> PNAB<br>Currículo Baseado em Competências</td></tr>
+      <tr class="f1"><td class="wk">S2</td><td class="dt">17–23/08</td>
+        <td><strong>Método Clínico Centrado na Pessoa · Habilidades de comunicação</strong><br><span style="color:var(--ink-soft);font-size:.92em">Os quatro componentes, doença vs. experiência da doença, técnicas de entrevista</span></td>
+        <td><span class="ref">16</span> Stewart<br><span class="ref">6</span> Dohms &amp; Gusso<br><span class="ref">14</span> Carrió</td></tr>
+      <tr class="f1"><td class="wk">S3</td><td class="dt">24–30/08</td>
+        <td><strong>Abordagem Familiar · Abordagem Comunitária</strong><br><span style="color:var(--ink-soft);font-size:.92em">Genograma, ciclo de vida familiar, intervenção sistêmica breve, território, diagnóstico comunitário</span></td>
+        <td><span class="ref">13</span> 10 Minutos para a Família<br><span class="ref">2</span> Gusso</td></tr>
+      <tr class="f1"><td class="wk">S4</td><td class="dt">31/08–06/09</td>
+        <td><strong>Raciocínio clínico · Medicina baseada em evidências · Rastreamento</strong><br><span style="color:var(--ink-soft);font-size:.92em">Prevenção quaternária, sobrediagnóstico, NNT/NNH, critérios de rastreamento</span></td>
+        <td><span class="ref">2</span> Gusso<br><span class="ref">1</span> BMJ Best Practice<br><span class="ref">28</span> Linhas de Cuidado</td></tr>
+      <tr class="f2"><td class="wk">S5</td><td class="dt">07–13/09</td>
+        <td><strong>Problemas prevalentes I — cardiometabólico</strong><br><span style="color:var(--ink-soft);font-size:.92em">Hipertensão, diabetes, dislipidemia, risco cardiovascular</span></td>
+        <td><span class="ref">25</span> Diretriz HAS <strong>2025</strong><br><span class="ref">1</span> BMJ BP<br><span class="ref">2</span> Gusso</td></tr>
+      <tr class="f2"><td class="wk">S6</td><td class="dt">14–20/09</td>
+        <td><strong>Problemas prevalentes II — infectologia na APS</strong><br><span style="color:var(--ink-soft);font-size:.92em">Tuberculose, dengue (grupos A–D), HIV, IST, Chagas</span></td>
+        <td><span class="ref">4</span> TB · <span class="ref">17</span> Dengue<br><span class="ref">19</span> PCDT HIV · <span class="ref">20</span> PCDT IST<br><span class="ref">24</span> Chagas</td></tr>
+      <tr class="f2"><td class="wk">S7</td><td class="dt">21–27/09</td>
+        <td><strong>Ciclos de vida I — criança e adolescente · Imunização</strong><br><span style="color:var(--ink-soft);font-size:.92em">Puericultura, crescimento e desenvolvimento, calendário vacinal completo</span></td>
+        <td><span class="ref">21</span> Calendário Nacional<br><span class="ref">23</span> VSR em gestantes<br><span class="ref">2</span> Gusso</td></tr>
+      <tr class="f2"><td class="wk">S8</td><td class="dt">28/09–04/10</td>
+        <td><strong>Ciclos de vida II — saúde da mulher e pessoa idosa</strong><br><span style="color:var(--ink-soft);font-size:.92em">Pré-natal, gravidez indesejada, contracepção, IVCF-20, ICOPE, fragilidade</span></td>
+        <td><span class="ref">22</span> Cartilha SBMFC<br><span class="ref">15</span> IVCF-20 / ICOPE<br><span class="ref">2</span> Gusso</td></tr>
+      <tr class="f2"><td class="wk">S9</td><td class="dt">05–11/10</td>
+        <td><strong>Cuidados paliativos · Cuidado domiciliar</strong><br><span style="color:var(--ink-soft);font-size:.92em">Elegibilidade para AD, modalidades AD1/AD2/AD3, controle de sintomas, comunicação de más notícias</span></td>
+        <td><span class="ref">3</span> Savassi<br><span class="ref">10</span> AD na APS<br><span class="ref">6</span> Dohms &amp; Gusso</td></tr>
+      <tr class="f3"><td class="wk">S10</td><td class="dt">12–18/10</td>
+        <td><strong>Vigilância em saúde · Urgência e emergência · Procedimentos ambulatoriais</strong><br><span style="color:var(--ink-soft);font-size:.92em">Notificação compulsória, investigação de surto, urgências na UBS, pequenas cirurgias</span></td>
+        <td><span class="ref">18</span> Guia de Vigilância 6ª ed.<br><span class="ref">2</span> Gusso</td></tr>
+      <tr class="f3"><td class="wk">S11</td><td class="dt">19–25/10</td>
+        <td><strong>Equidade e populações específicas</strong><br><span style="color:var(--ink-soft);font-size:.92em">População negra, LGBTQIA+, situação de rua, povos do campo/águas/florestas e indígenas, saúde do trabalhador, pessoas privadas de liberdade</span></td>
+        <td><span class="ref">7</span> PNSIPN · <span class="ref">5</span> Ciasca<br><span class="ref">9</span> Saúde Indígena<br><span class="ref">29</span> PNAISP</td></tr>
+      <tr class="f3"><td class="wk">S12</td><td class="dt">26/10–01/11</td>
+        <td><strong>Sistema, gestão e temas transversais</strong><br><span style="color:var(--ink-soft);font-size:.92em">Saúde coletiva, gestão do processo de trabalho, equipe multiprofissional, ética médica, pesquisa, formação em MFC, saúde planetária</span></td>
+        <td><span class="ref">8</span> Saúde Planetária (RBMFC)<br><span class="ref">12</span> Mudanças Climáticas<br><span class="ref">11</span> PNAB · <span class="ref">2</span> Gusso</td></tr>
+      <tr class="f4"><td class="wk">S13</td><td class="dt">02–08/11</td>
+        <td><strong>Revisão dirigida aos erros · Simulado completo · Logística</strong><br><span style="color:var(--ink-soft);font-size:.92em">Nada novo. Só o caderno de erros, um simulado de 90 questões em 5h, e o teste do setup da prova online.</span></td>
+        <td>Caderno de erros próprio<br><a href="./01-edital-em-uma-pagina.html">Referência 01</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>O ritmo de cada semana</h2>
+  <p>O plano assume <strong>~8 horas semanais</strong>, em blocos curtos compatíveis com jornada de trabalho. Se a realidade for outra, o que muda é a profundidade dentro da semana — <em>não</em> a ordem dos temas.</p>
+  <div class="rhythm">
+    <div class="r"><b>Teoria</b><span>Leitura ativa da referência da semana. Ler com caneta: cada seção termina com uma pergunta escrita que ela mesma responderá depois.</span><em>2h</em></div>
+    <div class="r"><b>Questões</b><span>Resolver questões do tema — <strong>uma por vez, sem voltar atrás</strong>, imitando a plataforma da prova.</span><em>3h</em></div>
+    <div class="r"><b>Caderno de erros</b><span>Para cada erro: <em>por que</em> errou (não sabia / interpretou mal / confundiu com outro conceito) e a frase-correção em uma linha.</span><em>1h30</em></div>
+    <div class="r"><b>Revisão espaçada</b><span>Recuperar de memória os temas das semanas anteriores, nos intervalos abaixo. Sem reler antes — tentar lembrar primeiro, conferir depois.</span><em>1h30</em></div>
+  </div>
+  <div class="callout good">
+    <h3>A proporção 30/70</h3>
+    <p>Cerca de <strong>30% do tempo em teoria e 70% em recuperação ativa</strong> (questões, caderno de erros, revisão). Ela é médica em atividade: o déficit não é fisiopatologia, é o vocabulário da MFC e a memorização de protocolos brasileiros. Releitura passiva é o principal desperdício de tempo disponível aqui — dá a sensação de domínio sem produzir retenção.</p>
+  </div>
+
+  <h2>Como a revisão espaçada funciona neste plano</h2>
+  <p>Em cada semana, além do tema novo, ela revisa três blocos antigos em <strong>intervalos crescentes</strong>:</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Bloco</th><th>Intervalo</th><th>O que fazer</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Semana anterior</strong></td><td class="dt">7 dias</td><td>Recuperar os pontos principais de memória, em voz alta ou por escrito. ~20 min.</td></tr>
+      <tr><td><strong>3 semanas atrás</strong></td><td class="dt">21 dias</td><td>Refazer as questões que ela errou naquele bloco — só as erradas. ~30 min.</td></tr>
+      <tr><td><strong>7 semanas atrás</strong></td><td class="dt">49 dias</td><td>Uma passada rápida no caderno de erros daquele bloco. ~20 min.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:.92rem;color:var(--ink-soft)">Intervalos crescentes com recuperação ativa produzem retenção de longo prazo superior à releitura, com evidência específica em <a href="https://pubmed.ncbi.nlm.nih.gov/39250798/">médicos já formados e em atividade</a> — e não só em estudantes. A sensação, porém, é de <em>mais</em> dificuldade: lembrar dói mais que reler. O desconforto é o mecanismo, não um sinal de que está dando errado.</p>
+
+  <h2>Marcos fixos</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Quando</th><th>O quê</th></tr></thead>
+    <tbody>
+      <tr><td class="dt">Fim da S4 · ~06/09</td><td><strong>Simulado diagnóstico</strong> de 30 questões, só do núcleo da MFC. Serve para calibrar: se o núcleo não estiver firme, vale atrasar a fase clínica em uma semana.</td></tr>
+      <tr><td class="dt">S5 · 11–15/09</td><td>⚠️ <strong>Conferir a homologação da inscrição</strong> no dia 11/09 e, se houver problema, entrar com recurso <strong>até 15/09 às 18h</strong>. Prazo curto e sem prorrogação.</td></tr>
+      <tr><td class="dt">S6 · a partir de 14/09</td><td>🚨 <strong>Agendar e fazer o pré-teste obrigatório</strong> junto à eduCAT, no <em>começo</em> da janela. É etapa <strong>eliminatória</strong>: sem aprovação nele não há acesso à prova. Instalar o navegador seguro antes do horário agendado.</td></tr>
+      <tr><td class="dt">S6–S7 · até 24/09</td><td><strong>Decidir em definitivo o computador da prova.</strong> O edital (9.5.9) exige que seja <em>o mesmo</em> do pré-teste, sob pena de exclusão. Fazer o pré-teste já na máquina que será usada em 08/11.</td></tr>
+      <tr><td class="dt">Fim da S9 · ~11/10</td><td><strong>Simulado de 60 questões</strong> cobrindo S1–S9, cronometrado, sem voltar atrás.</td></tr>
+      <tr><td class="dt">Até a S10 · 18/10</td><td><strong>Ensaiar o setup completo</strong> — notebook do pré-teste, celular como segunda câmera, internet, ambiente sem interrupção por 5h, documento com foto de menos de 5 anos.</td></tr>
+      <tr><td class="dt">S13 · 02–07/11</td><td><strong>Simulado completo</strong>: 90 questões, 5 horas, 09h–14h, para ensaiar o horário real. Depois, só caderno de erros.</td></tr>
+      <tr><td class="dt">08/11 · 09h–14h</td><td><strong>Prova.</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Duas armadilhas deste calendário</h2>
+  <div class="callout">
+    <h3>1. O Guia de Vigilância em Saúde não se lê</h3>
+    <p>A referência <span class="ref">18</span> tem centenas de páginas. Lê-la linearmente consumiria semanas e renderia poucas questões. Na S10, usar por <strong>consulta dirigida</strong>: listar primeiro as doenças de notificação compulsória e os agravos prevalentes no território dela, e ir só nesses capítulos.</p>
+  </div>
+  <div class="callout">
+    <h3>2. A Diretriz de Hipertensão é a de 2025</h3>
+    <p>A referência <span class="ref">25</span> é a versão <strong>2025</strong>. Metas pressóricas e classificação mudam entre diretrizes, e a prova cobra esta — não a que ela aprendeu na graduação nem a que está no protocolo do serviço dela. Vale comparar explicitamente na S5 o que mudou, porque é exatamente onde o conhecimento prático atrapalha.</p>
+  </div>
+
+  <p class="nav">← <a href="./01-edital-em-uma-pagina.html">Referência 01: o edital em uma página</a> · → <a href="../lessons/0001-atributos-da-aps.html">Lição 01: os sete atributos da APS</a></p>
+
+  <footer>
+    Referência 02 · Plano construído a partir do Anexo I do Edital TEMFC 38 (27 temas, 29 referências).
+    Datas conferidas: 90 dias entre 10/08/2026 e 08/11/2026, 13 semanas cheias de segunda a domingo.
+    O plano é um instrumento — se a realidade mudar, ele muda.
+  </footer>
+</div>
+</body>
+</html>
