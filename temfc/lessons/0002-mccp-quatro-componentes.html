@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lição 02 — Método Clínico Centrado na Pessoa</title>
+<style>
+  :root{
+    --ink:#1a1a18; --ink-soft:#55524c; --ink-faint:#8a857d;
+    --bg:#fffef9; --card:#ffffff; --rule:#ddd8cc;
+    --accent:#7d2b1d; --accent-soft:#f6ece6;
+    --ok:#2c5f2d; --ok-bg:#eef4ea; --ok-rule:#a8c9a0;
+    --no:#9b2226; --no-bg:#fbeceb; --no-rule:#dda9a6;
+    --warn:#8a4b00; --warn-bg:#fdf3e3;
+    --ess:#2f5d75; --der:#6b4e8f;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:3rem 1.25rem 5rem;background:var(--bg);color:var(--ink);
+    font-family:var(--serif);font-size:17px;line-height:1.58;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:44rem;margin:0 auto}
+  .eyebrow{font-family:var(--sans);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-faint);margin:0 0 .5rem}
+  h1{font-size:2.05rem;line-height:1.14;margin:0 0 .35rem;font-weight:600;letter-spacing:-.015em}
+  .sub{color:var(--ink-soft);font-style:italic;margin:0 0 2.2rem;font-size:1.03rem}
+  h2{font-family:var(--sans);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent);font-weight:650;margin:2.7rem 0 .85rem;padding-bottom:.35rem;
+    border-bottom:1px solid var(--rule)}
+  p{margin:0 0 .9rem}
+  ul,ol{margin:0 0 .9rem;padding-left:1.35rem}
+  li{margin-bottom:.45rem}
+  strong{font-weight:650}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(125,43,29,.3)}
+  a:hover{border-bottom-color:var(--accent)}
+  .lede{font-size:1.08rem;line-height:1.62}
+
+  /* attribute cards */
+  .attrs{margin:1.1rem 0 .4rem}
+  .grp{font-family:var(--sans);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+    font-weight:700;color:#fff;padding:.16em .5em;border-radius:2px;display:inline-block;margin:1.1rem 0 .6rem}
+  .grp.e{background:var(--ess)} .grp.d{background:var(--der)}
+  .attr{border:1px solid var(--rule);border-left:3px solid var(--ess);background:var(--card);
+    border-radius:0 3px 3px 0;padding:.75rem .95rem;margin-bottom:.5rem}
+  .attr.d{border-left-color:var(--der)}
+  .attr b{display:block;font-family:var(--sans);font-size:.93rem;font-weight:650;margin-bottom:.15rem}
+  .attr span{display:block;font-size:.95rem;color:var(--ink-soft);line-height:1.5}
+  .attr .trap{display:block;margin-top:.35rem;font-size:.87rem;color:var(--warn);font-family:var(--sans)}
+
+  .callout{border-left:3px solid var(--warn);background:var(--warn-bg);padding:.9rem 1.1rem;
+    margin:1.3rem 0;border-radius:0 3px 3px 0}
+  .callout.good{border-left-color:var(--ok);background:var(--ok-bg)}
+  .callout.grave{border-left-color:var(--accent);background:var(--accent-soft)}
+  .callout h3{font-family:var(--sans);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+    margin:0 0 .45rem;color:var(--warn);font-weight:650}
+  .callout.good h3{color:var(--ok)} .callout.grave h3{color:var(--accent)}
+  .callout p:last-child,.callout ul:last-child{margin-bottom:0}
+
+  /* quiz */
+  #quiz{border:1px solid var(--rule);border-radius:4px;background:var(--card);
+    padding:1.4rem 1.4rem 1.5rem;margin:1.2rem 0}
+  .qmeta{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--sans);
+    font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);
+    margin-bottom:.9rem;padding-bottom:.6rem;border-bottom:1px solid var(--rule)}
+  .qmeta .sc{font-variant-numeric:tabular-nums;font-weight:700;letter-spacing:0;text-transform:none;font-size:.8rem}
+  .stem{font-size:1.03rem;margin:0 0 1.1rem;line-height:1.55}
+  .opts{list-style:none;margin:0 0 1.1rem;padding:0}
+  .opts li{margin:0 0 .5rem}
+  .opts button{width:100%;text-align:left;font-family:var(--serif);font-size:1rem;line-height:1.45;
+    background:var(--bg);color:var(--ink);border:1px solid var(--rule);border-radius:3px;
+    padding:.7rem .85rem;cursor:pointer;display:flex;gap:.7rem;align-items:baseline;
+    transition:border-color .12s,background .12s}
+  .opts button:hover:not(:disabled){border-color:var(--ink-soft)}
+  .opts button .k{font-family:var(--sans);font-weight:700;font-size:.8rem;color:var(--ink-faint);flex:0 0 1rem}
+  .opts button[aria-pressed="true"]{border-color:var(--ink);border-width:1.5px;background:#fff}
+  .opts button:disabled{cursor:default;opacity:1}
+  .opts button.right{border-color:var(--ok-rule);background:var(--ok-bg)}
+  .opts button.right .k{color:var(--ok)}
+  .opts button.wrong{border-color:var(--no-rule);background:var(--no-bg)}
+  .opts button.wrong .k{color:var(--no)}
+  .opts button.dim{opacity:.5}
+  .fb{border-left:3px solid var(--ok);background:var(--ok-bg);padding:.85rem 1rem;
+    border-radius:0 3px 3px 0;margin:0 0 1.1rem;font-size:.97rem;line-height:1.55}
+  .fb.no{border-left-color:var(--no);background:var(--no-bg)}
+  .fb b{font-family:var(--sans);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;
+    display:block;margin-bottom:.35rem;color:var(--ok)}
+  .fb.no b{color:var(--no)}
+  .fb .src{display:block;margin-top:.5rem;font-family:var(--sans);font-size:.78rem;color:var(--ink-faint)}
+  .act{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+  .act button{font-family:var(--sans);font-size:.88rem;font-weight:600;padding:.6rem 1.15rem;
+    border-radius:3px;border:1px solid var(--accent);background:var(--accent);color:#fffef9;cursor:pointer}
+  .act button:disabled{opacity:.35;cursor:not-allowed}
+  .act .hint{font-family:var(--sans);font-size:.78rem;color:var(--ink-faint)}
+  .prog{display:flex;gap:.25rem;margin-bottom:.9rem}
+  .prog i{flex:1;height:.28rem;border-radius:2px;background:var(--rule)}
+  .prog i.done{background:var(--ok)} .prog i.miss{background:var(--no)} .prog i.now{background:var(--ink-soft)}
+  #done{display:none}
+  .bigscore{font-family:var(--sans);font-size:2.4rem;font-weight:700;letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;margin:.2rem 0 .1rem}
+  .misslist{font-size:.96rem;margin:.9rem 0 0;padding-left:1.3rem}
+  .noprint-note{font-family:var(--sans);font-size:.8rem;color:var(--ink-faint);margin-top:.6rem}
+
+  footer{margin-top:3.5rem;padding-top:1rem;border-top:1px solid var(--rule);
+    font-family:var(--sans);font-size:.76rem;color:var(--ink-faint)}
+  .nav{font-family:var(--sans);font-size:.8rem;margin-top:1.5rem}
+  @media print{
+    body{padding:0;font-size:10.5pt;background:#fff}.wrap{max-width:none}
+    #quiz,.nav{display:none}a{border-bottom:0;color:var(--ink)}
+    .attr,.callout{break-inside:avoid}
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ink:#eae6dd;--ink-soft:#b0aaa0;--ink-faint:#8b857b;--bg:#171614;--card:#1e1d1a;--rule:#3a3730;
+      --accent:#e5947f;--accent-soft:#2c1c18;--ok:#8fbe86;--ok-bg:#1b241a;--ok-rule:#3f5c3a;
+      --no:#e08b86;--no-bg:#2a1919;--no-rule:#5e3230;--warn:#e0a75c;--warn-bg:#2a2115;
+      --ess:#7fb0c9;--der:#b299d6;
+    }
+    :root:not([data-theme="light"]) .grp{color:#171614}
+    :root:not([data-theme="light"]) .opts button[aria-pressed="true"]{background:#26241f}
+    :root:not([data-theme="light"]) .act button{color:#171614}
+  }
+</style></head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Lição 02 · Semana 2 · 38º TEMFC</p>
+  <h1>Método Clínico Centrado na Pessoa</h1>
+  <p class="sub">Os quatro componentes de Stewart — e a distinção de uma frase que sustenta o método inteiro.</p>
+
+  <p class="lede">Se os <a href="./0001-atributos-da-aps.html">atributos da APS</a> descrevem como o <em>serviço</em> deve funcionar, o MCCP descreve como a <em>consulta</em> deve funcionar. É o framework mais citado da especialidade, e o que mais aparece disfarçado em questões de outros temas.</p>
+
+  <div class="callout grave">
+    <h3>Por que este tema pesa duas vezes</h3>
+    <p>A prova tem duas partes. Na <strong>teórica</strong>, o MCCP cai como conceito: nomes dos componentes, siglas, classificação. Na <strong>teórico-prática</strong> — 10 questões com vídeo, em que <strong>zerar elimina</strong> — o que se avalia são cenários de encontro clínico. É exatamente o terreno do MCCP. Nenhum outro tema do programa rende tanto por hora estudada.</p>
+  </div>
+
+  <h2>A distinção que funda o método</h2>
+  <p>Antes dos componentes, uma separação. O inglês tem duas palavras onde o português tem uma:</p>
+
+  <div class="attrs">
+    <div class="attr">
+      <b>Doença <span style="font-weight:400;color:var(--ink-faint)">(disease)</span></b>
+      <span>O processo biológico. Descritível em termos bioquímicos e celulares, manifesto por sinais e sintomas. É o que a medicina classifica, mede e trata. Existe independentemente de quem a tem.</span>
+    </div>
+    <div class="attr d">
+      <b>Experiência de adoecimento <span style="font-weight:400;color:var(--ink-faint)">(illness)</span></b>
+      <span>O significado singular que aquela pessoa atribui ao que lhe acontece. Como ela explica, o que teme, o que isso impede na vida dela, o que espera do encontro. Não se deduz do diagnóstico.</span>
+    </div>
+  </div>
+
+  <div class="callout good">
+    <h3>Por que isso não é filosofia</h3>
+    <p>Duas pessoas com a mesma glicemia e o mesmo diagnóstico podem viver coisas opostas — uma segue a vida, a outra entra em pânico porque viu o pai amputar o pé. <strong>A doença é a mesma; a experiência de adoecimento é outra.</strong> Tratar só a primeira produz o plano tecnicamente correto que não é seguido.</p>
+  </div>
+
+  <h2>Os quatro componentes</h2>
+  <p>Stewart e colaboradores organizam o encontro clínico em quatro componentes que, na prática, se entrelaçam — a separação existe para ensinar e pesquisar, não porque a consulta aconteça em etapas.</p>
+
+  <div class="attrs">
+    <div class="attr">
+      <b>1 · Explorar a saúde, a doença e a experiência de adoecimento</b>
+      <span>Investigar as duas dimensões ao mesmo tempo: a doença, pelos meios de sempre, e a experiência, com perguntas próprias. Também abrange as concepções de saúde da pessoa — o que ela entende por estar bem.</span>
+      <span class="trap">⚠ É o componente que sustenta os demais: sem saber o que a pessoa pensa e espera, não há como negociar plano nenhum no componente 3.</span>
+    </div>
+    <div class="attr">
+      <b>2 · Entender a pessoa como um todo</b>
+      <span>Situar quem adoece: história de vida, família, trabalho, fase do ciclo vital, e os contextos mais amplos — comunidade, cultura, condições materiais. A biografia entra na consulta.</span>
+    </div>
+    <div class="attr">
+      <b>3 · Elaborar um plano conjunto de manejo dos problemas</b>
+      <span>Três tarefas: <strong>definir os problemas</strong>, <strong>estabelecer prioridades e objetivos</strong> e <strong>definir os papéis</strong> de cada um. O plano é construído <em>com</em> a pessoa — é aqui que a agenda dela e a agenda médica precisam se encontrar.</span>
+      <span class="trap">⚠ Componente mais cobrado em vinheta. A falha típica: conduta tecnicamente impecável, montada sozinha e entregue pronta.</span>
+    </div>
+    <div class="attr">
+      <b>4 · Fortalecer a relação entre a pessoa e a pessoa médica</b>
+      <span>A relação construída ao longo dos encontros: confiança, empatia, continuidade, consciência de si de quem cuida. É o solo sobre o qual os outros três acontecem.</span>
+      <span class="trap">⚠ Também traduzido como <em>“intensificar a relação”</em>. A prova pode usar qualquer uma das duas formulações.</span>
+    </div>
+  </div>
+
+  <h2>SIFE: a ferramenta do componente 1</h2>
+  <p>Explorar a experiência de adoecimento parece vago até virar quatro perguntas. O acrônimo <strong>SIFE</strong> é o instrumento operacional:</p>
+
+  <div class="attrs">
+    <div class="attr d"><b>S · Sentimentos</b><span>“Como você se sente em relação a esse problema?” · “Como isso tem mexido com você?”</span></div>
+    <div class="attr d"><b>I · Ideias</b><span>“O que você acha que pode ter causado isso?” · “Aconteceu algo na sua vida que você acha que tem a ver?”</span></div>
+    <div class="attr d"><b>F · Funcionalidade</b><span>“Como isso vem te atrapalhando no seu dia a dia?”</span></div>
+    <div class="attr d"><b>E · Expectativas</b><span>“Como você espera que eu possa te ajudar hoje com esse problema?”</span></div>
+  </div>
+
+  <div class="callout">
+    <h3>Não confundir com o IPE</h3>
+    <p>Circula também o acrônimo <strong>IPE</strong> — Ideias, <em>Preocupações</em> e Expectativas — que vem de outra tradição. <strong>SIFE é o de Stewart</strong>, e é o que a bibliografia do edital sustenta. Se a questão citar “preocupações” como quarta dimensão, provavelmente está misturando os dois.</p>
+    <p style="margin-top:.5rem">Na prática clínica não é preciso fazer as quatro perguntas: duas costumam bastar para a pessoa trazer o que de fato a aflige.</p>
+  </div>
+
+  <div class="callout grave">
+    <h3>O erro conceitual que a prova adora</h3>
+    <p><strong>Centrado na pessoa não significa fazer o que a pessoa pede.</strong> O método não abre mão da evidência nem transforma a consulta em balcão de pedidos. Prescrever antibiótico para infecção viral porque a pessoa insistiu não é autonomia — é iatrogenia. Terreno comum é <em>negociação</em>, e negociação pressupõe duas partes com algo a dizer.</p>
+  </div>
+
+  <h2>Agora pratique — e do jeito difícil</h2>
+  <p>Sete casos. <strong>Uma questão por vez, e a resposta trava quando você confirma.</strong> Sem voltar atrás, como na plataforma do TEMFC (edital, itens 10.1.2 a 10.1.10).</p>
+
+  <div id="quiz">
+    <div class="prog" id="prog" aria-hidden="true"></div>
+    <div class="qmeta"><span id="qn">Questão 1 de 7</span><span class="sc" id="sc">0 acertos</span></div>
+    <p class="stem" id="stem"></p>
+    <ul class="opts" id="opts"></ul>
+    <div class="fb" id="fb" style="display:none"></div>
+    <div class="act">
+      <button id="confirm" disabled>Confirmar e travar</button>
+      <button id="next" style="display:none">Próxima questão →</button>
+      <span class="hint" id="hint">Escolha uma alternativa.</span>
+    </div>
+  </div>
+
+  <div id="done">
+    <h2>Resultado</h2>
+    <p class="bigscore" id="final"></p>
+    <p id="verdict"></p>
+    <div id="missblock"></div>
+  </div>
+
+  <h2>Fonte primária</h2>
+  <div class="callout">
+    <h3>Leia isto nesta semana</h3>
+    <p><strong>Medicina Centrada na Pessoa: Transformando o Método Clínico</strong> — Stewart, Brown, Weston, McWhinney, McWilliam &amp; Freeman. Artmed, 2017. É a referência <strong>nº 16</strong> da bibliografia oficial e a fonte canônica do método. Segunda prioridade de acesso, atrás apenas do Gusso.</p>
+    <p style="margin-top:.5rem">Se ainda não tiver o livro, duas fontes abertas e sólidas cobrem o essencial: o <a href="https://www.nescon.medicina.ufmg.br/biblioteca/imagem/3934.pdf">resumo do MCCP de Alberto Fuzikawa (NESCON/UFMG)</a> e o artigo <a href="https://rbmfc.org.br/rbmfc/article/view/2154">“Um roteiro de entrevista clínica centrada na pessoa para a graduação médica”</a>, publicado na RBMFC — de onde vêm as perguntas do SIFE reproduzidas acima.</p>
+  </div>
+
+  <h2>Antes de fechar</h2>
+  <div class="callout good">
+    <h3>Leve para a consulta de amanhã</h3>
+    <p>Este é um tema que se estuda praticando. Em duas ou três consultas amanhã, faça <strong>uma</strong> pergunta do SIFE que você normalmente não faria — a de Ideias costuma ser a mais reveladora. Observe o que aparece que não teria aparecido. Isso fixa mais do que releitura, e é grátis.</p>
+    <p style="margin-top:.5rem">Para cada questão que você errou aqui, três linhas no caderno de erros: o que se pedia, por que errou, e a frase de correção.</p>
+    <p style="margin-top:.5rem"><strong>Dúvida?</strong> Manda para o Felipe — dá para fazer uma lição nova só sobre o ponto que ficou confuso.</p>
+  </div>
+
+  <p class="nav">← <a href="./0001-atributos-da-aps.html">Lição 01: os sete atributos da APS</a> · Referências: <a href="../reference/01-edital-em-uma-pagina.html">01 · O edital</a> · <a href="../reference/02-plano-13-semanas.html">02 · Plano de 13 semanas</a></p>
+
+  <footer>
+    Lição 02 · Semana 2 de 13 · Temas: Método Clínico Centrado na Pessoa e Habilidades de comunicação (Anexo I, itens 4 e 9).
+    Fonte oficial: referência nº 16 (Stewart et al., 2017) do Anexo I do Edital TEMFC 38.
+    Perguntas do SIFE conforme roteiro publicado na Rev Bras Med Fam Comunidade 2020;15(42):2154.
+  </footer>
+</div>
+<script>
+(function(){
+  "use strict";
+
+    var Q = [
+    {
+      stem: "Uma mulher de 34 anos com cefaleia há duas semanas relata o quadro. A médica pergunta: “o que você acha que pode estar causando isso?”. Qual dimensão da experiência de adoecimento ela está explorando?",
+      opts: [
+        "Sentimentos",
+        "Funcionalidade",
+        "Ideias",
+        "Expectativas"
+      ],
+      ans: 2,
+      why: [
+        "Sentimentos seria acessado por perguntas como “como você se sente em relação a esse problema?” ou “como isso tem mexido com você?”. A pergunta feita busca explicação, não afeto.",
+        "Funcionalidade seria acessada por “como isso vem te atrapalhando no seu dia a dia?”. A pergunta feita não investiga impacto sobre a rotina.",
+        "“O que você acha que causou isso?” é a pergunta canônica das Ideias — a explicação que a própria pessoa constrói para o adoecimento. É o I do acrônimo SIFE.",
+        "Expectativas seriam acessadas por “como você espera que eu possa te ajudar hoje?”. A pergunta feita olha para a causa, não para o que ela deseja da consulta."
+      ],
+      src: "Anexo I, ref. 16 — Stewart et al. · SIFE, primeiro componente do MCCP"
+    },
+    {
+      stem: "Ainda na mesma consulta, a médica pergunta: “como essa dor vem atrapalhando o seu dia a dia?”. Qual dimensão da experiência de adoecimento essa pergunta acessa?",
+      opts: [
+        "Funcionalidade",
+        "Ideias",
+        "Expectativas",
+        "Sentimentos"
+      ],
+      ans: 0,
+      why: [
+        "Funcionalidade é exatamente o impacto do adoecimento sobre as atividades e a rotina da pessoa — o F do acrônimo SIFE.",
+        "Ideias diriam respeito à explicação que a pessoa dá para a causa do problema, o que não é objeto desta pergunta.",
+        "Expectativas diriam respeito ao que ela espera obter do encontro clínico, e não ao prejuízo que já vem sofrendo.",
+        "Sentimentos diriam respeito ao afeto mobilizado pelo problema, algo que esta pergunta não busca diretamente."
+      ],
+      src: "Anexo I, ref. 16 — Stewart et al. · SIFE, primeiro componente do MCCP"
+    },
+    {
+      stem: "Dois homens recebem no mesmo dia o diagnóstico de diabetes tipo 2, com glicemias muito parecidas. Um segue a vida quase sem alteração; o outro entra em sofrimento intenso, porque viu o pai amputar o pé. Qual distinção do MCCP essa situação ilustra?",
+      opts: [
+        "Entre prevalência da condição e incidência da condição",
+        "Entre a doença e a experiência de adoecimento",
+        "Entre queixa principal e história da doença atual",
+        "Entre atributo essencial e atributo derivado"
+      ],
+      ans: 1,
+      why: [
+        "Prevalência e incidência são medidas epidemiológicas de frequência. Nada na cena trata de frequência populacional.",
+        "É a distinção fundadora do MCCP: a <em>doença</em> é o processo biológico, descritível em termos bioquímicos e celulares; a <em>experiência de adoecimento</em> é o significado singular que aquela pessoa atribui ao que lhe acontece. Mesma doença, experiências opostas.",
+        "Queixa principal e história da doença atual são etapas da anamnese tradicional, centrada na agenda médica — justamente o modelo que o MCCP se propõe a superar.",
+        "Essencial e derivado classificam os atributos da APS, e não os componentes do método clínico. São frameworks diferentes."
+      ],
+      src: "Anexo I, ref. 16 — Stewart et al. · primeiro componente"
+    },
+    {
+      stem: "Qual das alternativas NÃO corresponde a um dos quatro componentes do Método Clínico Centrado na Pessoa?",
+      opts: [
+        "Elaborar um plano conjunto de manejo dos problemas",
+        "Explorar a saúde, a doença e a experiência de adoecimento",
+        "Realizar exame físico completo e segmentar por aparelhos",
+        "Fortalecer a relação entre a pessoa e a pessoa médica"
+      ],
+      ans: 2,
+      why: [
+        "É o terceiro componente, tal como formulado por Stewart. Alternativa verdadeira, portanto não é a resposta.",
+        "É o primeiro componente, e o que sustenta todos os demais. Alternativa verdadeira, portanto não é a resposta.",
+        "O exame físico segmentado por aparelhos pertence ao modelo biomédico tradicional, estruturado pela agenda do médico. É prática clínica legítima, mas não é um componente do MCCP — que descreve como conduzir o encontro, e não que manobras semiológicas executar.",
+        "É o quarto componente, também traduzido como “intensificar a relação”. Alternativa verdadeira, portanto não é a resposta."
+      ],
+      src: "Anexo I, ref. 16 — Stewart et al. · os quatro componentes"
+    },
+    {
+      stem: "O terceiro componente do MCCP — elaborar um plano conjunto de manejo dos problemas — é descrito por três tarefas. Qual alternativa as reúne corretamente?",
+      opts: [
+        "Solicitar exames, interpretar resultados e prescrever o tratamento indicado",
+        "Acolher a demanda, escutar a queixa e encaminhar ao serviço adequado",
+        "Investigar sintomas, formular hipóteses e confirmar o diagnóstico provável",
+        "Definir os problemas, estabelecer objetivos e definir os papéis de cada um"
+      ],
+      ans: 3,
+      why: [
+        "Descreve uma sequência diagnóstico-terapêutica conduzida unilateralmente pelo médico — exatamente o oposto da construção conjunta que o componente propõe.",
+        "Acolher e encaminhar descreve um fluxo assistencial de rede, e não a negociação que caracteriza este componente.",
+        "Investigar, formular hipóteses e confirmar diagnóstico descreve o raciocínio clínico diagnóstico, que é outro tema do conteúdo programático.",
+        "São as três tarefas: definir e descrever o problema, estabelecer prioridades e objetivos do manejo, e identificar os papéis a serem assumidos por cada um. O plano é construído <em>com</em> a pessoa, não <em>para</em> ela."
+      ],
+      src: "Anexo I, ref. 16 — Stewart et al. · terceiro componente"
+    },
+    {
+      stem: "Um homem de 58 anos procura a unidade preocupado com tontura. A médica identifica hipertensão não controlada, ajusta o anti-hipertensivo, orienta dieta e agenda retorno — tudo tecnicamente correto. Ele sai sem ter falado da tontura, que era o que o trouxe. Qual componente do MCCP foi negligenciado de forma mais evidente?",
+      opts: [
+        "O quarto, por não ter fortalecido a relação ao longo do tempo",
+        "O segundo, por não ter considerado o contexto familiar dele",
+        "O primeiro, por não ter explorado a experiência de adoecimento",
+        "O terceiro, por não ter construído o plano conjuntamente com ele"
+      ],
+      ans: 3,
+      why: [
+        "A relação pode até ter sido afetada, mas o quarto componente trata do vínculo construído ao longo dos encontros, e não do desencontro de agendas em uma consulta específica.",
+        "O contexto familiar pertence ao segundo componente, e nada na cena indica que ele seria determinante para o desfecho descrito.",
+        "É uma resposta defensável e próxima, já que a agenda dele não foi ouvida. Mas a falha descrita se consuma no <em>plano</em>: a conduta foi montada sozinha e entregue pronta.",
+        "O plano foi elaborado unilateralmente. Faltou definir prioridades <em>em conjunto</em> — a prioridade dele era a tontura, a da médica era a pressão, e nenhuma negociação ocorreu. É a falha central da cena."
+      ],
+      src: "Anexo I, ref. 16 — Stewart et al. · terceiro componente · agenda da pessoa × agenda médica"
+    },
+    {
+      stem: "Uma mulher com quadro claro de infecção viral de vias aéreas superiores insiste em receber antibiótico, dizendo que “só melhora assim”. Qual conduta é mais coerente com o Método Clínico Centrado na Pessoa?",
+      opts: [
+        "Prescrever o antibiótico solicitado, pois respeitar a autonomia da pessoa é o princípio central do método",
+        "Explorar as ideias e expectativas dela sobre o quadro e negociar um plano que ambas considerem aceitável",
+        "Negar o pedido e explicar de forma objetiva que antibiótico não tem indicação em infecção viral",
+        "Encaminhar ao especialista focal para que a conduta seja confirmada por uma segunda avaliação"
+      ],
+      ans: 1,
+      why: [
+        "Este é o erro mais comum sobre o MCCP: confundir centralidade na pessoa com atender a qualquer pedido. Prescrever antibiótico sem indicação é iatrogenia, e o método nunca sustentou abrir mão da evidência.",
+        "É a aplicação correta: explorar o que a leva a acreditar nisso (Ideias) e o que ela espera do encontro (Expectativas) e, a partir daí, construir terreno comum. Frequentemente a expectativa real é alívio de sintomas, não o antibiótico em si.",
+        "Negar sem explorar mantém o encontro centrado na agenda médica. A informação técnica está certa, mas entregue assim tende a não mudar a crença nem a satisfazer a pessoa.",
+        "Encaminhar transfere um problema que se resolve na própria consulta e não enfrenta a divergência de expectativas, além de sobrecarregar a rede sem necessidade."
+      ],
+      src: "Anexo I, ref. 16 — Stewart et al. · primeiro e terceiro componentes"
+    }
+  ];
+
+  var i = 0, score = 0, sel = null, locked = false;
+  var missed = [];
+
+  var elProg = document.getElementById('prog');
+  var elQn = document.getElementById('qn');
+  var elSc = document.getElementById('sc');
+  var elStem = document.getElementById('stem');
+  var elOpts = document.getElementById('opts');
+  var elFb = document.getElementById('fb');
+  var elConfirm = document.getElementById('confirm');
+  var elNext = document.getElementById('next');
+  var elHint = document.getElementById('hint');
+  var elQuiz = document.getElementById('quiz');
+  var elDone = document.getElementById('done');
+
+  for (var p = 0; p < Q.length; p++) elProg.appendChild(document.createElement('i'));
+
+  function paintProg(){
+    var kids = elProg.children;
+    for (var k = 0; k < kids.length; k++){
+      kids[k].className = k < i ? (missed.indexOf(k) === -1 ? 'done' : 'miss') : (k === i ? 'now' : '');
+    }
+  }
+
+  function render(){
+    var q = Q[i];
+    sel = null; locked = false;
+    elQn.textContent = 'Questão ' + (i + 1) + ' de ' + Q.length;
+    elSc.textContent = score + (score === 1 ? ' acerto' : ' acertos');
+    elStem.textContent = q.stem;
+    elFb.style.display = 'none';
+    elFb.className = 'fb';
+    elConfirm.style.display = '';
+    elConfirm.disabled = true;
+    elNext.style.display = 'none';
+    elHint.textContent = 'Escolha uma alternativa.';
+    elHint.style.display = '';
+    elOpts.innerHTML = '';
+    paintProg();
+
+    q.opts.forEach(function(text, idx){
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-pressed', 'false');
+      var k = document.createElement('span');
+      k.className = 'k';
+      k.textContent = 'ABCD'.charAt(idx);
+      var t = document.createElement('span');
+      t.textContent = text;
+      b.appendChild(k); b.appendChild(t);
+      b.addEventListener('click', function(){
+        if (locked) return;
+        sel = idx;
+        var all = elOpts.querySelectorAll('button');
+        for (var a = 0; a < all.length; a++) all[a].setAttribute('aria-pressed', 'false');
+        b.setAttribute('aria-pressed', 'true');
+        elConfirm.disabled = false;
+        elHint.textContent = 'Ao confirmar, a resposta trava — igual à prova.';
+      });
+      li.appendChild(b);
+      elOpts.appendChild(li);
+    });
+  }
+
+  elConfirm.addEventListener('click', function(){
+    if (locked || sel === null) return;
+    locked = true;
+    var q = Q[i];
+    var right = (sel === q.ans);
+    if (right) score++; else missed.push(i);
+
+    var all = elOpts.querySelectorAll('button');
+    for (var a = 0; a < all.length; a++){
+      all[a].disabled = true;
+      if (a === q.ans) all[a].className = 'right';
+      else if (a === sel) all[a].className = 'wrong';
+      else all[a].className = 'dim';
+    }
+
+    elFb.className = right ? 'fb' : 'fb no';
+    var head = right ? 'Correta' : 'Incorreta';
+    var body = right
+      ? q.why[q.ans]
+      : '<strong>Por que sua escolha não serve:</strong> ' + q.why[sel] +
+        '<br><br><strong>Por que a ' + 'ABCD'.charAt(q.ans) + ' é a correta:</strong> ' + q.why[q.ans];
+    elFb.innerHTML = '<b>' + head + '</b>' + body +
+      '<span class="src">Fonte: ' + q.src + '</span>';
+    elFb.style.display = '';
+
+    elSc.textContent = score + (score === 1 ? ' acerto' : ' acertos');
+    elConfirm.style.display = 'none';
+    elHint.style.display = 'none';
+    elNext.style.display = '';
+    elNext.textContent = (i === Q.length - 1) ? 'Ver resultado →' : 'Próxima questão →';
+    paintProg();
+  });
+
+  elNext.addEventListener('click', function(){
+    i++;
+    if (i >= Q.length){ finish(); return; }
+    render();
+    elQuiz.scrollIntoView({block:'start', behavior:'smooth'});
+  });
+
+  function finish(){
+    elQuiz.style.display = 'none';
+    elDone.style.display = 'block';
+    var pct = Math.round(score / Q.length * 100);
+    document.getElementById('final').textContent = score + '/' + Q.length + ' · ' + pct + '%';
+
+    var v = document.getElementById('verdict');
+    if (score === Q.length){
+      v.innerHTML = 'Sete de sete. Os quatro componentes e o SIFE estão firmes — e isso vale duas vezes, porque sustenta também as 10 questões em vídeo. Na semana 3 o tema é a <strong>abordagem familiar</strong>, que se apoia no componente 2.';
+    } else if (score >= 5){
+      v.innerHTML = 'Boa base. O corte da prova é <strong>66,7%</strong> e a meta do plano é <strong>78%</strong> — você está na faixa. Feche as lacunas abaixo antes da semana 3, porque o MCCP volta em quase todo tema.';
+    } else {
+      v.innerHTML = 'Vale refazer. Releia os quatro cartões dos componentes e o bloco do SIFE, e repita o quiz <strong>amanhã</strong> — não hoje. O intervalo de um dia é parte do mecanismo: lembrar depois de esquecer um pouco é o que produz retenção.';
+    }
+
+    if (missed.length){
+      var mb = document.getElementById('missblock');
+      var h = '<p style="font-family:var(--sans);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin:1.3rem 0 .3rem">Para o caderno de erros</p><ol class="misslist">';
+      missed.forEach(function(m){
+        h += '<li><strong>Questão ' + (m + 1) + '</strong> — resposta correta: ' +
+             'ABCD'.charAt(Q[m].ans) + ') ' + Q[m].opts[Q[m].ans] +
+             '<br><span style="color:var(--ink-soft);font-size:.93em">' + Q[m].src + '</span></li>';
+      });
+      h += '</ol><p class="noprint-note">Anote para cada uma: o que a questão pedia, por que errou, e a frase de correção.</p>';
+      mb.innerHTML = h;
+    }
+    elDone.scrollIntoView({block:'start', behavior:'smooth'});
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>

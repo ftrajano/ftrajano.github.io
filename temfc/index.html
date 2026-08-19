@@ -169,10 +169,15 @@
       <a class="t" href="./lessons/0001-atributos-da-aps.html">Os sete atributos da APS</a>
       <p>Os 4 essenciais e os 3 derivados, com 7 vinhetas clínicas. O quiz trava a resposta ao confirmar, como na prova.</p>
     </div>
+    <div class="c">
+      <span class="tag les">Lição 02 · Semana 2</span>
+      <a class="t" href="./lessons/0002-mccp-quatro-componentes.html">Método Clínico Centrado na Pessoa</a>
+      <p>Os quatro componentes de Stewart, a distinção entre doença e experiência de adoecimento, e o SIFE. Vale dobrado: alimenta as 10 questões em vídeo.</p>
+    </div>
     <div class="c" style="opacity:.55">
-      <span class="tag wk">Lição 02 · Semana 2</span>
-      <span class="t" style="font-size:1.05rem;font-weight:650;display:block;margin-bottom:.25rem">Método Clínico Centrado na Pessoa</span>
-      <p>Os quatro componentes de Stewart e a distinção entre doença e experiência da doença. <em>Ainda não produzida.</em></p>
+      <span class="tag wk">Lição 03 · Semana 3</span>
+      <span class="t" style="font-size:1.05rem;font-weight:650;display:block;margin-bottom:.25rem">Abordagem familiar</span>
+      <p>Genograma, ciclo de vida familiar e intervenção sistêmica breve. <em>Ainda não produzida.</em></p>
     </div>
   </div>
 
@@ -286,8 +291,8 @@
   "use strict";
 
   var PLANO = [
-    {s:1,  f:1, ini:"10/08", fim:"16/08", tema:"Princípios da MFC · Princípios da APS", refs:"[2] Gusso · [11] PNAB"},
-    {s:2,  f:1, ini:"17/08", fim:"23/08", tema:"Método Clínico Centrado na Pessoa · Comunicação", refs:"[16] Stewart · [6] · [14]"},
+    {s:1,  f:1, ini:"10/08", fim:"16/08", tema:"Princípios da MFC · Princípios da APS", refs:"[2] Gusso · [11] PNAB", lic:["./lessons/0001-atributos-da-aps.html","Os sete atributos da APS"]},
+    {s:2,  f:1, ini:"17/08", fim:"23/08", tema:"Método Clínico Centrado na Pessoa · Comunicação", refs:"[16] Stewart · [6] · [14]", lic:["./lessons/0002-mccp-quatro-componentes.html","Método Clínico Centrado na Pessoa"]},
     {s:3,  f:1, ini:"24/08", fim:"30/08", tema:"Abordagem Familiar · Abordagem Comunitária", refs:"[13] Asen · [2] Gusso"},
     {s:4,  f:1, ini:"31/08", fim:"06/09", tema:"Raciocínio clínico · MBE · Rastreamento", refs:"[2] · [1] BMJ · [28]"},
     {s:5,  f:2, ini:"07/09", fim:"13/09", tema:"Prevalentes I — cardiometabólico", refs:"[25] HAS 2025 · [1] · [2]"},
@@ -341,8 +346,8 @@
   var foco = document.getElementById('focoAgora');
   var atual = PLANO.filter(function(w){ return w.s === semana; })[0];
   if (atual){
-    var licao = (semana === 1)
-      ? '<p style="margin-top:.5rem"><strong>Lição desta semana:</strong> <a href="./lessons/0001-atributos-da-aps.html">Os sete atributos da APS</a> — 7 vinhetas, quiz que trava a resposta. Cerca de 20 minutos.</p>'
+    var licao = atual.lic
+      ? '<p style="margin-top:.5rem"><strong>Lição desta semana:</strong> <a href="' + atual.lic[0] + '">' + atual.lic[1] + '</a> — 7 vinhetas, quiz que trava a resposta. Cerca de 20 minutos.</p>'
       : '<p style="margin-top:.5rem">A lição desta semana ainda não foi produzida. Peça ao Felipe.</p>';
     foco.innerHTML =
       '<div class="callout good"><h3>Semana ' + atual.s + ' de 13 · ' + atual.ini + ' a ' + atual.fim + '</h3>' +
@@ -361,12 +366,12 @@
     {n:1,  t:"Princípios da MFC",                  sem:"S1",    st:"parcial"},
     {n:2,  t:"Princípios da APS",                  sem:"S1",    st:"ok"},
     {n:3,  t:"Saúde Coletiva",                     sem:"S12",   st:"todo"},
-    {n:4,  t:"Método Clínico Centrado na Pessoa",  sem:"S2",    st:"todo"},
+    {n:4,  t:"Método Clínico Centrado na Pessoa",  sem:"S2",    st:"ok"},
     {n:5,  t:"Medicina baseada em Evidências",     sem:"S4",    st:"todo"},
     {n:6,  t:"Abordagem Familiar",                 sem:"S3",    st:"todo"},
     {n:7,  t:"Abordagem Comunitária",              sem:"S3",    st:"todo"},
     {n:8,  t:"Raciocínio Clínico",                 sem:"S4",    st:"todo"},
-    {n:9,  t:"Habilidades de comunicação",         sem:"S2",    st:"todo"},
+    {n:9,  t:"Habilidades de comunicação",         sem:"S2",    st:"parcial"},
     {n:10, t:"Ética médica",                       sem:"S12",   st:"todo"},
     {n:11, t:"Formação em MFC",                    sem:"S12",   st:"todo"},
     {n:12, t:"Pesquisa médica",                    sem:"S12",   st:"todo"},
